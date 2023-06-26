@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Register</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <header></header>
+    <main>
+      <div class="container-fluid mt-5 pt-5 d-flex justify-content-center">
+        <div class="d-flex w-50 shadow p-4">
+          <form class="w-100 px-4">
+            <h2 class="text-uppercase text-center mb-4">Đăng ký học viên</h2>
+            <div class="row">
+              <label class="col-md-12 col-lg-3 text-primary"> Họ và tên </label>
+              <div class="col-md-12 col-lg-9 pb-3">
+                <input type="text" name="yourname" class="w-100" />
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-md-12 col-lg-3 text-primary"> Ngày sinh </label>
+              <div class="col-md-12 col-lg-9 pb-3">
+                <input type="text" name="text" class="w-100" />
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-md-12 col-lg-3 text-primary"> Giới tính </label>
+              <div class="col-md-12 col-lg-9 pb-3">
+                <input type="radio" id="gender" name="gender" value="gender" />
+                <label for="gender" class="pe-2">Nam</label>
+                <input type="radio" id="gender" name="gender" value="gender" />
+                <label for="gender">Nữ</label>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-md-12 col-lg-3 text-primary"> Địa chỉ </label>
+              <div class="col-md-12 col-lg-9 pb-3">
+                <textarea
+                  id="address"
+                  name="address"
+                  rows="4"
+                  cols="50"
+                  class="w-100"
+                ></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-md-12 col-lg-3 text-primary"> Lớp </label>
+              <div class="col-md-12 col-lg-9 pb-3">
+                <select name="class" id="class">
+                  <option value="">--Chọn Lớp--</option>
+                  <option value="a1">A1</option>
+                  <option value="b2">B2</option>
+                  <option value="c3">C3</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-md-12 col-lg-3 text-primary"> Email </label>
+              <div class="col-md-12 col-lg-9 pb-3">
+                <input type="email" name="email" class="w-100" />
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-md-12 col-lg-3 text-primary">
+                Điện thoại
+              </label>
+              <div class="col-md-12 col-lg-9 pb-3">
+                <input type="text" name="phone" class="w-100" />
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col-md-12 col-lg-3 pb-3"></div>
+              <div class="col-md-12 col-lg-9 text-center text-lg-start">
+                <input
+                  type="submit"
+                  value="Đăng ký"
+                  class="btn btn-secondary"
+                />
+                <input
+                  type="reset"
+                  value="Nhập lại"
+                  class="btn btn-secondary"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/style.js"></script>
+  </body>
+</html>
