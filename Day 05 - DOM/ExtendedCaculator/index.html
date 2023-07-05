@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Extended Caculator</title>
+	<style>
+		.m-b {
+			margin-bottom: 5px;
+		}
+
+		.p {
+			padding: 0px 10.5px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<input type="text" id="input"><br /><br />
+	<div class="buttons">
+		<button class="m-b" onclick="appendNumber(1)">1</button>
+		<button class="m-b" onclick="appendNumber(2)">2</button>
+		<button class="m-b" onclick="appendNumber(3)">3</button>
+		<button class="m-b" onclick="appendNumber(4)">4</button>
+		<button class="m-b" onclick="appendNumber(5)">5</button><br />
+		<button class="m-b" onclick="appendNumber(6)">6</button>
+		<button class="m-b" onclick="appendNumber(7)">7</button>
+		<button class="m-b" onclick="appendNumber(8)">8</button>
+		<button class="m-b" onclick="appendNumber(9)">9</button>
+		<button class="m-b" onclick="appendNumber(0)">0</button><br />
+
+		<button class="m-b p" onclick="appendOperator('+')">+</button>
+		<button class="m-b p" onclick="appendOperator('-')">-</button>
+		<button class="m-b p" onclick="appendOperator('*')">*</button>
+		<button class="m-b p" onclick="appendOperator('/')">/</button><br />
+
+		<button class="m-b" onclick="calculateSin()">sin</button>
+		<button class="m-b" onclick="calculateCos()">cos</button>
+		<button class="m-b" onclick="calculateTan()">tan</button>
+		<button class="m-b " onclick="calculate()">=</button><br />
+		<button class="m-b" onclick="clearInput()">Clear</button>
+
+
+	</div>
+	<script>
+		var input = document.getElementById("input");
+
+		function appendNumber(number) {
+			input.value += number;
+		}
+
+		function appendOperator(operator) {
+			input.value += operator;
+		}
+
+		function clearInput() {
+			input.value = "";
+		}
+
+		function calculate() {
+			var result = eval(input.value);
+			input.value = result;
+		}
+
+		function calculateSin() {
+			var number = parseFloat(input.value);
+			if (!isNaN(number)) {
+				var result = Math.sin(number);
+				input.value = result;
+			} else {
+				input.value = "Error";
+			}
+		}
+
+		function calculateCos() {
+			var number = parseFloat(input.value);
+			if (!isNaN(number)) {
+				var result = Math.cos(number);
+				input.value = result;
+			} else {
+				input.value = "Error";
+			}
+		}
+		function calculateTan() {
+			var number = parseFloat(input.value);
+			if (!isNaN(number)) {
+				var result = Math.tan(number);
+				input.value = result;
+			} else {
+				input.value = "Error";
+			}
+		}
+	</script>
+</body>
+
+</html>

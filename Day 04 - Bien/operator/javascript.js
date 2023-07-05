@@ -7,13 +7,13 @@ function rectangularArea() {
   document.write("The area is: " + area);
 }
 function inputDateofBirth() {
-  let year = prompt("Enter Year of Birth :");
-  let month = prompt("Enter Month of Birth :");
-  let day = prompt("Enter Day of Birth :");
+  let year = parseInt(prompt("Enter Year of Birth :"));
+  let month = parseInt(prompt("Enter Month of Birth :"));
+  let day = parseInt(prompt("Enter Day of Birth :"));
   document.write("<h2> " + day + "-" + month + "-" + year + "</h2> ");
 }
 function circumferenceAreaCircle() {
-  let r = prompt("Enter radius:");
+  let r = parseFloat(prompt("Enter radius:"));
   const PI = 3.14;
   let c = 2 * r * PI;
   let s = r * r * PI;
@@ -22,11 +22,13 @@ function circumferenceAreaCircle() {
   document.write("<h2>Diện Tích Hình Tròn : " + s + "</h2> ");
 }
 function bankInterestRate() {
-  let amount = prompt("Nhập vào số tiền gửi tiết kiệm:");
-  let interest = prompt("Nhập vào số lãi xuât gửi tiết kiệm hàng năm:");
-  let year = prompt("Nhập vào số năm gửi tiết kiệm: ");
+  let amount = parseFloat(prompt("Nhập vào số tiền gửi tiết kiệm:"));
+  let interest = parseFloat(
+    prompt("Nhập vào số lãi xuât gửi tiết kiệm hàng năm:")
+  );
+  let year = parseInt(prompt("Nhập vào số năm gửi tiết kiệm: "));
   let oneYear = (amount * interest) / 100;
-  let total = amount * 1 + year * oneYear;
+  let total = amount + year * oneYear;
   document.write(
     "<h2>Số tiền sẽ nhận được sau " +
       year +

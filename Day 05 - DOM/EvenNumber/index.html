@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Even Number</title>
+</head>
+
+<body>
+	<p>Nhập số</p>
+	<input type="text" name="number" id="inputNumber"> <button type="button" onclick="getCheckEvenNumber()">Kiểm
+		Tra</button>
+	<script>
+		function getCheckEvenNumber() {
+			let inputNumber = document.getElementById("inputNumber").value;
+			if (isNaN(inputNumber)) {
+				alert(inputNumber + " is not a number please enter a valid number");
+			} else {
+				if (parseInt(inputNumber) % 2 == 0) {
+					alert(inputNumber + " is an even number")
+				} else {
+					alert(inputNumber + " is not an even number")
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>

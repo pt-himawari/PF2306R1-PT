@@ -1,134 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Hoopy</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-  </head>
 
-  <body>
-    <header></header>
-    <main>
-      <div class="container-fluid mt-5 pt-5 d-flex justify-content-center">
-        <div class="card w-50 shadow p-4">
-          <form class="w-100">
-            <h2 class="text-center m-3 p-2 text-uppercase">Sở thích của bạn</h2>
-            <div class="row">
-              <label
-                class="col-12 col-lg-3 text-center text-lg-end text-primary mt-2"
-              >
-                Họ và tên
-              </label>
-              <div class="col-12 col-lg-9 text-center text-lg-start pb-3 mt-2">
-                <input type="text" name="yourname" class="w-75" />
-              </div>
-            </div>
-            <div class="row">
-              <label
-                class="col-md-12 col-lg-3 text-center text-lg-end text-primary mt-2"
-              >
-                Email
-              </label>
-              <div
-                class="col-md-12 col-lg-9 text-center text-lg-start pb-3 mt-2"
-              >
-                <input type="email" name="email" class="w-75" />
-              </div>
-            </div>
-            <div class="row pb-3">
-              <label
-                class="col-md-12 col-lg-3 text-center text-lg-end pb-2 text-primary"
-              >
-                Sở thích
-              </label>
-              <div class="col-md-12 col-lg-9">
-                <div class="row ps-sm-5 ps-md-5 ps-lg-0">
-                  <div class="col-lg-4 col-md-6">
-                    <input
-                      type="checkbox"
-                      id="sport"
-                      name="hobby"
-                      value="sport"
-                    />
-                    <label for="sport"> Thể thao</label>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                    <input
-                      type="checkbox"
-                      id="music"
-                      name="hobby"
-                      value="music"
-                    />
-                    <label for="music"> Âm nhạc</label>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                    <input
-                      type="checkbox"
-                      id="book"
-                      name="hobby"
-                      value="book"
-                    />
-                    <label for="book"> Đọc sách</label>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                    <input type="checkbox" id="web" name="hobby" value="web" />
-                    <label for="web"> Lướt web</label>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                    <input
-                      type="checkbox"
-                      id="game"
-                      name="hobby"
-                      value="game"
-                    />
-                    <label for="game"> Game</label>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                    <input
-                      type="checkbox"
-                      id="film"
-                      name="hobby"
-                      value="film"
-                    />
-                    <label for="film"> Điện ảnh</label>
-                  </div>
-                  <div class="col-lg-4">
-                    <input
-                      type="checkbox"
-                      id="tourism"
-                      name="hobby"
-                      value="tourism"
-                    />
-                    <label for="tourism"> Du lịch</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row pb-3">
-              <div class="col-md-12 col-lg-3 pb-3"></div>
-              <div class="col-md-12 col-lg-9 text-center text-lg-start">
-                <input
-                  type="submit"
-                  value="Gửi thông tin"
-                  class="btn btn-secondary"
-                />
-                <input
-                  type="reset"
-                  value="Nhập lại"
-                  class="btn btn-secondary"
-                />
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </main>
-    <footer></footer>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Form Hoopy</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+</head>
 
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+<body>
+	<header></header>
+	<main>
+		<div class="container-fluid mt-5 pt-5 d-flex justify-content-center">
+			<div class="card w-50 shadow p-4">
+				<form action="action.php" method="get" class="w-100">
+					<h2 class="text-center m-3 p-2 text-uppercase">Sở thích của bạn</h2>
+					<div class="row">
+						<label class="col-12 col-lg-3 text-center text-lg-end text-primary mt-2">
+							Họ và tên
+						</label>
+						<div class="col-12 col-lg-9 text-center text-lg-start pb-3 mt-2">
+							<input type="text" name="yourname" class="w-75" />
+						</div>
+					</div>
+					<div class="row">
+						<label class="col-md-12 col-lg-3 text-center text-lg-end text-primary mt-2">
+							Email
+						</label>
+						<div class="col-md-12 col-lg-9 text-center text-lg-start pb-3 mt-2">
+							<input type="email" name="email" class="w-75" />
+						</div>
+					</div>
+					<div class="row pb-3">
+						<label class="col-md-12 col-lg-3 text-center text-lg-end pb-2 text-primary">
+							Sở thích
+						</label>
+						<div class="col-md-12 col-lg-9">
+							<div class="row ps-sm-5 ps-md-5 ps-lg-0">
+								<div class="col-lg-4 col-md-6">
+									<input type="checkbox" id="sport" name="hobby" value="sport" />
+									<label for="sport"> Thể thao</label>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<input type="checkbox" id="music" name="hobby" value="music" />
+									<label for="music"> Âm nhạc</label>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<input type="checkbox" id="book" name="hobby" value="book" />
+									<label for="book"> Đọc sách</label>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<input type="checkbox" id="web" name="hobby" value="web" />
+									<label for="web"> Lướt web</label>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<input type="checkbox" id="game" name="hobby" value="game" />
+									<label for="game"> Game</label>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<input type="checkbox" id="film" name="hobby" value="film" />
+									<label for="film"> Điện ảnh</label>
+								</div>
+								<div class="col-lg-4">
+									<input type="checkbox" id="tourism" name="hobby" value="tourism" />
+									<label for="tourism"> Du lịch</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row pb-3">
+						<div class="col-md-12 col-lg-3 pb-3"></div>
+						<div class="col-md-12 col-lg-9 text-center text-lg-start">
+							<input type="submit" value="Gửi thông tin" class="btn btn-secondary" />
+							<input type="reset" value="Nhập lại" class="btn btn-secondary" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+	<footer></footer>
 
-    <script src="assets/js/style.js"></script>
-  </body>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+	<script src="assets/js/style.js"></script>
+</body>
+
 </html>
