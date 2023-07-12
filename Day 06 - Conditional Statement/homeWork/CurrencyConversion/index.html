@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Conversion</title>
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    select {
+      width: 130px;
+    }
+
+    td {
+      text-align: center;
+      padding: 0 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td>Amount</td>
+      <td>From Currency</td>
+      <td>To Currency</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><input type="number" onchange="getAmount(this)"></td>
+      <td>
+        <select name="fromCurrency-select" id="area-select" onchange="getValuefromCurrency(this)">
+          <option value="null">Select</option>
+          <option value="vn">VietNam</option>
+          <option value="usd">USD</option>
+        </select>
+      </td>
+
+      <td>
+        <select name="toCurrency-select" id="area-select" onchange="getValuetoCurrency(this)">
+          <option value="null">Select</option>
+          <option value="vnd">VietNam</option>
+          <option value="usd">USD</option>
+        </select>
+      </td>
+      <td><button onclick="convert()">Convert</button></td>
+    </tr>
+  </table>
+  <p id="result" style="color: brown;"></p>
+  <script>
+    let amount, fromCurrency, toCurrency
+    let res = document.getElementById("result")
+
+    function getAmount(obj) {
+      amount = obj.value;
+    }
+    function getValuefromCurrency(obj) {
+      fromCurrency = obj.value;
+    }
+    function getValuetoCurrency(obj) {
+      toCurrency = obj.value;
+    }
+    function convert() {
+
+      if (fromCurrency == "vn") {
+        switch (toCurrency) {
+          case "vnd":
+            res.innerText = "Result : " + amount + " VND";
+            break;
+          case "usd":
+            res.innerText = "Result : " + (amount * 0.000042) + " VND";
+            break;
+          default: alert("Please select to currency");
+
+        }
+      } else {
+        if (fromCurrency == "usd") {
+          switch (toCurrency) {
+            case "vnd":
+              res.innerText = "Result : " + (amount * 23650.00) + " USD";
+              break;
+            case "usd":
+              res.innerText = "Result : " + amount + " USD";
+              break;
+            default: alert("Please select to currency"); break;
+          }
+          // res.innerText = "Result : " + amount + " VND";
+        } else {
+          alert("Please select from currency");
+        }
+      }
+
+
+
+
+    }
+
+  </script>
+
+</body>
+
+</html>

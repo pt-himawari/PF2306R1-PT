@@ -6,22 +6,24 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Caculator</title>
+	<style>
+		* {
+			font-family: arial, helvetica, sans-serif;
+		}
+	</style>
 </head>
 
 <body>
 	<h1>Caculator</h1>
-	<input type="text" name="number" id="inputNumber1"> <input type="text" name="number" id="inputNumber2">
+	<input type="text" name="number1" id="inputNumber1">
+	<input type="text" name="number2" id="inputNumber2">
 	<button type="button" onclick="calculateSum()">Addition(+)</button>
 	<button type="button" onclick="calculateDifference()">Subtraction(-)</button>
 	<button type="button" onclick="calculateMultiply()">Multiplication(X)</button>
 	<button type="button" onclick="calculateDivide()">Divison(/)</button>
 	<p id="result" style="color: rgb(22, 159, 228);"></p>
 	<script>
-
-
-		var node = document.getElementById('result');
-		// var inputNumber1 = document.getElementById("inputNumber1");
-		// var inputNumber2 = document.getElementById("inputNumber2");
+		let res = document.getElementById('result');
 		//get value 1
 		function getValue1() {
 			return inputNumber1 = parseFloat(document.getElementById("inputNumber1").value);
@@ -36,36 +38,39 @@
 				return true;
 			}
 		}
+
 		//sum function
 		function calculateSum() {
 
 			if (getCheckIsNumber()) {
-				return alert("Một trong hai số không phải giá trị số! Hãy nhập lại")
+				alert("Một trong hai số không phải giá trị số! Hãy nhập lại")
 			} else
-				return node.innerHTML = "Result Addition : " + (getValue1() + getValue2());
+				res.innerHTML = "Result Addition : " + (getValue1() + getValue2());
 		}
+
 		// function to calculate the difference of two numbers
 		function calculateDifference() {
 			if (getCheckIsNumber()) {
-				return alert("Một trong hai số không phải giá trị số! Hãy nhập lại")
+				alert("Một trong hai số không phải giá trị số! Hãy nhập lại")
 			} else
-				return node.innerHTML = "Result Subtraction : " + (getValue1() - getValue2());
+				res.innerHTML = "Result Subtraction : " + (getValue1() - getValue2());
 
 		}
+
 		// function to multiply two numbers
 		function calculateMultiply() {
 			if (getCheckIsNumber()) {
-				return alert("Một trong hai số không phải giá trị số! Hãy nhập lại")
+				alert("Một trong hai số không phải giá trị số! Hãy nhập lại")
 			} else
-				return node.innerHTML = "Result Multiplication : " + (getValue1() * getValue2());
+				res.innerHTML = "Result Multiplication : " + (getValue1() * getValue2());
 
 		}
 		// function to divide two numbers
 		function calculateDivide() {
 			if (getCheckIsNumber()) {
-				return alert("Một trong hai số không phải giá trị số! Hãy nhập lại")
+				alert("Một trong hai số không phải giá trị số! Hãy nhập lại")
 			} else
-				return node.innerHTML = "Result Divison : " + (getValue1() / getValue2());
+				res.innerHTML = "Result Divison : " + (getValue1() / getValue2());
 
 		}
 

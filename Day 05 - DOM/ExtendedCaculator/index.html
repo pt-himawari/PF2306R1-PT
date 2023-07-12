@@ -7,6 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Extended Caculator</title>
 	<style>
+		* {
+			font-family: arial, helvetica, sans-serif;
+		}
+
 		.m-b {
 			margin-bottom: 5px;
 		}
@@ -19,41 +23,37 @@
 
 <body>
 
-	<input type="text" id="input"><br /><br />
-	<div class="buttons">
-		<button class="m-b" onclick="appendNumber(1)">1</button>
-		<button class="m-b" onclick="appendNumber(2)">2</button>
-		<button class="m-b" onclick="appendNumber(3)">3</button>
-		<button class="m-b" onclick="appendNumber(4)">4</button>
-		<button class="m-b" onclick="appendNumber(5)">5</button><br />
-		<button class="m-b" onclick="appendNumber(6)">6</button>
-		<button class="m-b" onclick="appendNumber(7)">7</button>
-		<button class="m-b" onclick="appendNumber(8)">8</button>
-		<button class="m-b" onclick="appendNumber(9)">9</button>
-		<button class="m-b" onclick="appendNumber(0)">0</button><br />
+	<input type="text" id="inputNumber"><br /><br />
 
-		<button class="m-b p" onclick="appendOperator('+')">+</button>
-		<button class="m-b p" onclick="appendOperator('-')">-</button>
-		<button class="m-b p" onclick="appendOperator('*')">*</button>
-		<button class="m-b p" onclick="appendOperator('/')">/</button><br />
+	<button class="m-b" onclick="appendValues(1)">1</button>
+	<button class="m-b" onclick="appendValues(2)">2</button>
+	<button class="m-b" onclick="appendValues(3)">3</button>
+	<button class="m-b" onclick="appendValues(4)">4</button>
+	<button class="m-b" onclick="appendValues(5)">5</button><br />
+	<button class="m-b" onclick="appendValues(6)">6</button>
+	<button class="m-b" onclick="appendValues(7)">7</button>
+	<button class="m-b" onclick="appendValues(8)">8</button>
+	<button class="m-b" onclick="appendValues(9)">9</button>
+	<button class="m-b" onclick="appendValues(0)">0</button><br />
 
-		<button class="m-b" onclick="calculateSin()">sin</button>
-		<button class="m-b" onclick="calculateCos()">cos</button>
-		<button class="m-b" onclick="calculateTan()">tan</button>
-		<button class="m-b " onclick="calculate()">=</button><br />
-		<button class="m-b" onclick="clearInput()">Clear</button>
+	<button class="m-b p" onclick="appendValues('+')">+</button>
+	<button class="m-b p" onclick="appendValues('-')">-</button>
+	<button class="m-b p" onclick="appendValues('*')">*</button>
+	<button class="m-b p" onclick="appendValues('/')">/</button><br />
+
+	<button class="m-b" onclick="calculateSin()">sin</button>
+	<button class="m-b" onclick="calculateCos()">cos</button>
+	<button class="m-b" onclick="calculateTan()">tan</button>
+	<button class="m-b " onclick="calculate()">=</button><br />
+	<button class="m-b" onclick="clearInput()">Clear</button>
 
 
-	</div>
+
 	<script>
-		var input = document.getElementById("input");
+		let input = document.getElementById("inputNumber");
 
-		function appendNumber(number) {
-			input.value += number;
-		}
-
-		function appendOperator(operator) {
-			input.value += operator;
+		function appendValues(value) {
+			input.value += value;
 		}
 
 		function clearInput() {
@@ -61,14 +61,15 @@
 		}
 
 		function calculate() {
-			var result = eval(input.value);
+			//nhận một chuỗi làm tham số và thực thi nội dung của chuỗi đó eval("2 + 2 + 2")->6
+			let result = eval(input.value);
 			input.value = result;
 		}
 
 		function calculateSin() {
-			var number = parseFloat(input.value);
+			let number = parseFloat(input.value);
 			if (!isNaN(number)) {
-				var result = Math.sin(number);
+				let result = Math.sin(number);
 				input.value = result;
 			} else {
 				input.value = "Error";
@@ -76,18 +77,18 @@
 		}
 
 		function calculateCos() {
-			var number = parseFloat(input.value);
+			let number = parseFloat(input.value);
 			if (!isNaN(number)) {
-				var result = Math.cos(number);
+				let result = Math.cos(number);
 				input.value = result;
 			} else {
 				input.value = "Error";
 			}
 		}
 		function calculateTan() {
-			var number = parseFloat(input.value);
+			let number = parseFloat(input.value);
 			if (!isNaN(number)) {
-				var result = Math.tan(number);
+				let result = Math.tan(number);
 				input.value = result;
 			} else {
 				input.value = "Error";

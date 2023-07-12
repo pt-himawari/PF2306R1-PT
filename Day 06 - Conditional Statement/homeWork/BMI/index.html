@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Body Mass Index</title>
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <p id="result"></p>
+  <script>
+
+    let weight = Number(prompt("Enter your weight : "));
+    let height = Number(prompt("Enter your height : "));
+    let res = document.getElementById("result");
+    let bmi = weight / (height * height)
+    switch (true) {
+      case (bmi < 16):
+        status = "Gầy Độ III"; break;
+      case (16 <= bmi && bmi < 17):
+        status = "Gầy Độ II"; break;
+      case (17 <= bmi && bmi < 18.5):
+        status = "Gầy Độ I"; break;
+      case (18.5 <= bmi && bmi < 25):
+        status = "Bình Thường"; break;
+      case (25 <= bmi && bmi < 30):
+        status = "Thừa Cân"; break;
+      case (30 <= bmi && bmi < 35):
+        status = "Béo Phì độ I"; break;
+      case (35 <= bmi && bmi < 40):
+        status = "Béo Phì độ II"; break;
+      case (bmi > 40):
+        status = "Béo Phì độ II"; break;
+
+    }
+    res.innerHTML = "Chỉ Số BMI : " + status;
+
+  </script>
+</body>
+
+</html>

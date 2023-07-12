@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcuate University Grade D</title>
+
+
+</head>
+
+<body>
+  <table>
+
+    <tr>
+      <td><label>Môn Toán</label></td>
+      <td><input type="number" onchange="getScoreMath(this)"></td>
+    </tr>
+    <tr>
+      <td><label>Môn Văn</label></td>
+      <td><input type="number" onchange="getScoreLiterature(this)"></td>
+    </tr>
+    <tr>
+      <td><label>Môn Anh</label></td>
+      <td><input type="number" onchange="getScoreEnglish(this)"></td>
+    </tr>
+    <tr>
+      <td><label>Khu Vực</label></td>
+      <td>
+        <select name="area-select" id="area-select" onchange="getValueArea(this)">
+          <option value="null">Chọn Khu Vực</option>
+          <option value="kv1">KV1</option>
+          <option value="kv2">KV2</option>
+          <option value="kv2-nt">KV2-NT</option>
+          <option value="kv3">KV3</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><br /><button onclick="showScore()">Tính Điểm</button></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- <button onclick="showScore()">Tính Điểm</button> -->
+  <p id="result" style="color: brown;"></p>
+
+</body>
+<script>
+  let area, scoreMath, scoreLiterature, scoreEnglish
+  let res = document.getElementById("result");
+
+  function getScoreMath(obj) {
+    scoreMath = parseFloat(obj.value);
+  }
+  function getScoreLiterature(obj) {
+    scoreLiterature = parseFloat(obj.value);
+  }
+  function getScoreEnglish(obj) {
+    scoreEnglish = parseFloat(obj.value);
+  }
+  function getValueArea(obj) {
+    area = obj.value;
+  }
+  function showScore() {
+    switch (area) {
+      case "kv1": score = 0.75; break;
+      case "kv2": score = 0.5; break;
+      case "kv2-nt": score = 0.25; break;
+      case "kv3": score = 0; break;
+      default: score = null;
+    }
+    if (score != null) {
+      total = parseFloat(scoreMath + scoreLiterature + scoreEnglish + score);
+      res.innerText = "Tổng Điểm ĐH khối D của bạn là : " + total;
+
+    } else {
+      res.innerHTML = "Bạn chưa chọn khu vực<br/> Hãy Chọn Khu Vực !"
+    }
+
+  }
+
+</script>
+
+</html>

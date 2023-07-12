@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruit Price Lookup</title>
+  <style>
+    * {
+      font-family: arial, helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <select name="fruit-select" id="fruit-select" onchange="getValueFruit(this)">
+    <option value="null">Hãy Chọn Loại Quả</option>
+    <option value="guava">Ổi</option>
+    <option value="watermelon">Dưa Hấu</option>
+    <option value="apple">Táo</option>
+    <option value="orange">Cam</option>
+    <option value="rambutan">Chôm Chôm</option>
+    <option value="mangoes">Măng Cụt</option>
+
+  </select>
+
+  <button onclick="showPrice()">Xem Giá</button>
+  <p id="result"></p>
+  <script>
+    let fruit
+    let res = document.getElementById("result");
+
+    function getValueFruit(obj) {
+      fruit = obj.value;
+    }
+    function showPrice() {
+      switch (fruit) {
+        case "guava": price = "20000"; break;
+        case "watermelon": price = "20000"; break;
+        case "apple": price = "30000"; break;
+        case "orange": price = "40000"; break;
+        case "rambutan": price = "40000"; break;
+        case "mangoes": price = "50000"; break;
+        default: price = "Hãy chọn Loại Quả "
+      }
+      res.innerText = price + " VNĐ/kg";
+    }
+  </script>
+</body>
+
+
+
+</html>

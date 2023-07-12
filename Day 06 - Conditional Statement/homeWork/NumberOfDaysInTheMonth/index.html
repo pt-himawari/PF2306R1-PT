@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Of Days In The Month</title>
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <lable>Số Ngày Trong Tháng</lable><br /><br />
+  <select name="month-select" id="month-select" onchange="getValueMonth(this)">
+    <option value="null">Hãy chọn Tháng</option>
+    <option value="1">Tháng 1</option>
+    <option value="2">Tháng 2</option>
+    <option value="3">Tháng 3</option>
+    <option value="4">Tháng 4</option>
+    <option value="5">Tháng 5</option>
+    <option value="6">Tháng 6</option>
+    <option value="7">Tháng 7</option>
+    <option value="8">Tháng 8</option>
+    <option value="9">Tháng 9</option>
+    <option value="10">Tháng 10</option>
+    <option value="11">Tháng 11</option>
+    <option value="12">Tháng 12</option>
+
+  </select>
+  <button onclick="showNumberOfDays()">Tính Số Ngày</button>
+  <p id="result"></p>
+  <script>
+    let month
+    let res = document.getElementById("result");
+    function getValueMonth(obj) {
+      month = obj.value;
+    }
+    function showNumberOfDays() {
+      switch (month) {
+        case "1":
+        case "3":
+        case "5":
+        case "7":
+        case "8":
+        case "10":
+        case "12": numberOfDays = "31"; break;
+        case "2": numberOfDays = "28 hoặc 29"; break;
+        case "4":
+        case "6":
+        case "9":
+        case "11": numberOfDays = "30"; break;
+        default: numberOfDays = null;
+
+      }
+      if (numberOfDays != null) {
+
+        res.innerText = "Tháng " + month + " có " + numberOfDays + " Ngày";
+      } else {
+        res.innerText = "Tháng không hợp lệ"
+
+      }
+    }
+
+  </script>
+</body>
+
+</html>

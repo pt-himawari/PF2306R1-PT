@@ -6,23 +6,31 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Even Number</title>
+	<style>
+		* {
+			font-family: arial, helvetica, sans-serif;
+		}
+	</style>
 </head>
 
 <body>
+	<h1>Kiểm Tra số chẵn </h1>
 	<p>Nhập số</p>
-	<input type="text" name="number" id="inputNumber"> <button type="button" onclick="getCheckEvenNumber()">Kiểm
-		Tra</button>
+	<input type="text" name="number" id="inputNumber">
+	<button type="button" onclick="getCheckEvenNumber()">Kiểm Tra</button>
 	<script>
+		let inputNumber = document.getElementById("inputNumber");
+		console.log(inputNumber);
+
 		function getCheckEvenNumber() {
-			let inputNumber = document.getElementById("inputNumber").value;
-			if (isNaN(inputNumber)) {
-				alert(inputNumber + " is not a number please enter a valid number");
-			} else {
-				if (parseInt(inputNumber) % 2 == 0) {
-					alert(inputNumber + " is an even number")
-				} else {
-					alert(inputNumber + " is not an even number")
-				}
+			let number = inputNumber.value;
+			if (isNaN(number))
+				alert(number + " is not a number please enter a valid number");
+			else {
+				if (parseInt(number) % 2 == 0)
+					alert(number + " is an even number")
+				else
+					alert(number + " is not an even number")
 			}
 		}
 	</script>

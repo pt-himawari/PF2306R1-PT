@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convert Solar Year To Lunar Year</title>
+</head>
+
+<body>
+  <p id="result" style="color: brown;">a</p>
+  <script>
+    let calendarYear = Number(prompt('Nhập Năm Dương Lịch'));
+    let res = document.getElementById("result")
+    let heavenlyStems, earthlyBranches;//can, chi
+
+    switch (calendarYear % 10) {
+      case 0: heavenlyStems = "Canh"; break;
+      case 1: heavenlyStems = "Tân"; break;
+      case 2: heavenlyStems = "Nhâm"; break;
+      case 3: heavenlyStems = "Quý"; break;
+      case 4: heavenlyStems = "Giáp"; break;
+      case 5: heavenlyStems = "Ất"; break;
+      case 6: heavenlyStems = "Bính"; break;
+      case 7: heavenlyStems = "Đinh"; break;
+      case 8: heavenlyStems = "Mậu"; break;
+      case 9: heavenlyStems = "Kỷ"; break;
+      default: heavenlyStems = "Không hợp lệ";
+    }
+    switch (calendarYear % 12) {
+      case 0: earthlyBranches = "Thân"; break;
+      case 1: earthlyBranches = "Dậu"; break;
+      case 2: earthlyBranches = "Tuất"; break;
+      case 3: earthlyBranches = "Hợi"; break;
+      case 4: earthlyBranches = "Tý"; break;
+      case 5: earthlyBranches = "Sửu"; break;
+      case 6: earthlyBranches = "Dần"; break;
+      case 7: earthlyBranches = "Mão"; break;
+      case 8: earthlyBranches = "Thìn"; break;
+      case 9: earthlyBranches = "Tỵ"; break;
+      case 10: earthlyBranches = "Ngọ"; break;
+      case 11: earthlyBranches = "Mùi"; break;
+      default: earthlyBranches = "Không hợp lệ";
+    }
+
+    res.innerText = "Năm " + calendarYear + "âm lịch : " + heavenlyStems + " " + earthlyBranches;
+  </script>
+</body>
+
+</html>
