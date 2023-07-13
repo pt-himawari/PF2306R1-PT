@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Business Check ISBN-10</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+	<style>
+		* {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.onetofive .input-group {
+			padding-left: 200px;
+		}
+
+		.fiveToeight .input-group {
+			padding-right: 200px;
+		}
+
+
+
+		.row {
+			padding: 0 200px;
+
+		}
+
+		.results {
+			margin: 0;
+		}
+
+		body {
+			/* text-align: center; */
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container mt-2">
+		<div class="row ">
+
+
+			<h1 class="text-capitalize text-center text-primary fw-bolder mb-3">business check ISBN-10</h1>
+			<div class="onetofive m-auto col-5 ">
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-success fw-bolder fs-5"
+						id="inputGroup-sizing-sm">d<sub>1</sub></span>
+					<input type="number" oninput="limitToSingleChar(this)" name="d1" onchange="getDigit(this,'d1')"
+						min="0" max="9" class="form-control">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-success fw-bolder fs-5"
+						id="inputGroup-sizing-sm">d<sub>2</sub></span>
+					<input type="number" oninput="limitToSingleChar(this)" name="d2" onchange="getDigit(this,'d2')"
+						min="0" max="9" class="form-control">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-success fw-bolder fs-5"
+						id="inputGroup-sizing-sm">d<sub>3</sub></span>
+					<input type="number" oninput="limitToSingleChar(this)" name="d3" onchange="getDigit(this,'d3')"
+						min="0" max="9" class="form-control">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-success fw-bolder fs-5"
+						id="inputGroup-sizing-sm">d<sub>4</sub></span>
+					<input type="number" oninput="limitToSingleChar(this)" name="d4" onchange="getDigit(this,'d4')"
+						min="0" max="9" class="form-control">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-success fw-bolder fs-5"
+						id="inputGroup-sizing-sm">d<sub>5</sub></span>
+					<input type="number" oninput="limitToSingleChar(this)" name="d5" onchange="getDigit(this,'d5')"
+						min="0" max="9" class="form-control">
+				</div>
+
+			</div>
+			<div class="fiveToeight m-auto col-5 ">
+
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-success fw-bolder fs-5"
+						id="inputGroup-sizing-sm">d<sub>6</sub></span>
+					<input type="number" oninput="limitToSingleChar(this)" name="d6" onchange="getDigit(this,'d6')"
+						min="0" max="9" class="form-control">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-success fw-bolder fs-5"
+						id="inputGroup-sizing-sm">d<sub>7</sub></span>
+					<input type="number" oninput="limitToSingleChar(this)" name="d7" onchange="getDigit(this,'d7')"
+						min="0" max="9" class="form-control">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-success fw-bolder fs-5"
+						id="inputGroup-sizing-sm">d<sub>8</sub></span>
+					<input type="number" oninput="limitToSingleChar(this)" oninput="limitToSingleChar(this)" name="d8"
+						onchange="getDigit(this,'d8')" min="0" max="9" class="form-control">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-success fw-bolder fs-5"
+						id="inputGroup-sizing-sm">d<sub>9</sub></span>
+					<input type="number" oninput="limitToSingleChar(this)" name="d9" onchange="getDigit(this,'d9')"
+						min="0" max="9" class="form-control">
+				</div>
+				<div class=" input-group input-group-sm mb-3">
+					<span class="input-group-text text-success fw-bolder fs-5" id="inputGroup-sizing-sm">d<sub>10</sub>
+					</span>
+					<input type="number" name="d10" disabled class="form-control">
+				</div>
+
+
+			</div>
+			<div class="mt-4 col-10 text-center">
+				<button type="button" onclick="showISBN()"
+					class="btn btn-primary text-capitalize d-inline-block fs-3">ISBN-10</sub>
+				</button>
+				<p id="results" class="ms-4 fw-bolder text-info my-auto d-inline-block fs-2"></p>
+			</div>
+
+		</div>
+		<script>
+			let d1, d2, d3, d5, d6, d7, d8, d9, d10;
+			let res = document.getElementById("results")
+			// Giới hạn nhập của người dùng ở thẻ input
+			function limitToSingleChar(input) {
+				if (input.value.length > 1) {
+					input.value = input.value.slice(0, 1);
+				}
+			}
+			// get value Digit
+			function getDigit(obj, value) {
+				let digit = obj.value;
+				switch (value) {
+					case "d1": d1 = Number(digit); break;
+					case "d2": d2 = Number(digit); break;
+					case "d3": d3 = Number(digit); break;
+					case "d4": d4 = Number(digit); break;
+					case "d5": d5 = Number(digit); break;
+					case "d6": d6 = Number(digit); break;
+					case "d7": d7 = Number(digit); break;
+					case "d8": d8 = Number(digit); break;
+					case "d9": d9 = Number(digit); break;
+					default: break;
+				}
+
+			}
+			function showISBN() {
+				if (d1 == null || d2 == null || d3 == null || d5 == null || d6 == null || d7 == null || d8 == null || d9 == null) {
+					alert("Please enter enough value");
+				} else {
+					d10 = (d1 + 2 * d2 + 3 * d3 + 4 * d4 + 5 * d5 + 6 * d6 + 7 * d7 + 8 * d8 + 9 * d9) % 11;
+					if (d10 < 10) {
+						res.innerText = d1 + "" + d2 + "" + d3 + "" + d4 + "" + d5 + "" + d6 + "" + d7 + "" + d8 + "" + d9 + "" + d10;
+					} else {
+						res.innerText = d1 + "" + d2 + "" + d3 + "" + d4 + "" + d5 + "" + d6 + "" + d7 + "" + d8 + "" + d9 + "" + "X";
+					}
+				}
+
+
+
+			}
+		</script>
+</body>
+
+</html>

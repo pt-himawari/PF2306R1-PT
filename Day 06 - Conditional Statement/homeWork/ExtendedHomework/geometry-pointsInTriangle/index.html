@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Science Day Of The Week</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+	<style>
+		* {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+
+		body {
+			/* text-align: center; */
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container mt-5">
+		<div class="row ">
+
+			<h1 class="text-capitalize text-center text-primary fw-bolder mb-3">Geometry points in triangle</h1>
+			<div class=" m-auto col-5 ">
+
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+						X - coordinates
+					</span>
+					<input type="number" name="x" onchange="getCoordinatesX(this)" class="form-control">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text  text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+						Y - coordinates
+					</span>
+					<input type="number" name="y" onchange="getCoordinatesY(this)" class="form-control">
+				</div>
+
+				<div class="input-group input-group-sm mb-3">
+					<button onclick="isInside()" type="button" class=" fs-4 btn btn-primary text-capitalize">
+						check
+					</button>
+					<p id="result" class="fs-3 fw-bolder text-info d-inline-block ps-3 "></p>
+				</div>
+				</form>
+			</div>
+		</div>
+
+		<script>
+			// Nếu toạ độ điểm người dùng nhập vào x và y < toạ độ giao nhau của hai đường thằng thì điểm đó nằm trong tam giác
+			// bài toán này  ta sẽ tìm điểm giao nhau giữa 2 đường thẳng biết 4 điểm toạ độ
+			//  hai đường thẳng giao nhau đó là điểm OU ( U là điểm người dùng nhập vào)
+			// và AB là đỉnh của hai góc còn lại của hình vuông
+			// Công thức tim giao điểm
+			//Điểm giao nhau của hai đường thẳng có thể được tìm bằng cách giải phương trình tuyến tính sau đây:
+			//(y1-y2)x  - (x1-x2)y = (y1-y2)x1 - (x1-x2)y1
+			//(y3-y4)x - (x3-x4)y= (y3-y4)x3 - (x3-x4)y3
+			// giải phương trình 
+			// ax + by = e     // x = e*d -b*f / a*d - b*c
+			// cx + dy = f      // y = a*f -e*c/ a*d - b*c
+
+			let userX, userY;
+			let res = document.getElementById("result")
+			function getCoordinatesX(obj) {
+				userX = obj.value;
+
+			}
+			function getCoordinatesY(obj) {
+				userY = obj.value;
+
+			}
+			function isInside() {
+				let x = parseFloat((-userX * (200 * 100)) / (-userY * 200 - userX * 100));
+				let y = parseFloat((-userY * (200 * 100)) / (-userY * 200 - userX * 100));
+				if (userX == null || userY == null) {
+					alert("Please enter enough value");
+				} else {
+					if ((userX < x && userY < y) && (userX > 0 && userY > 0)) {
+						res.innerText = "The point is in the triangle"
+					} else {
+						res.innerText = "The point is outside the triangle"
+
+					}
+				}
+
+
+			}
+
+
+
+		</script>
+
+</body>
+
+</html>

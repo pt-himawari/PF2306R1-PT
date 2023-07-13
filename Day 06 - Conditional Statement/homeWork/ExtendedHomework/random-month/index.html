@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Random Month</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+	<style>
+		* {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		#number {
+			margin: 0;
+		}
+
+		body {
+			/* text-align: center; */
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="ps-3  m-auto">
+				<h1 class="text-capitalize py-3 mt-5">Random month</h1>
+				<div class=" d-flex ">
+					<div>
+						<button onclick="showTargetMonth()" type="button" class="btn btn-primary text-capitalize">
+							Month
+						</button>
+					</div>
+					<p id="number" class="fs-1 fw-bolder text-success d-inline-block ps-3 ">0&nbsp;</p>
+				</div>
+				<div class=" d-flex ">
+					<div>
+						<button onclick="showNameMonth()" type="button" class="btn btn-primary text-capitalize">
+							Name
+						</button>
+					</div>
+
+					<p id="results" class="fs-1 fw-bolder text-info d-inline-block ps-3 "></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<script>
+
+		let interval;
+		let targetNumber;
+		let res;
+
+		function showTargetMonth() {
+			targetNumber = Math.floor(Math.random() * 12) + 1;
+			// Bắt đầu tăng số từ 0
+			let currentNumber = 0;
+			interval = setInterval(function () {
+				// Hiển thị số hiện tại
+				if (currentNumber < 10) {
+					document.getElementById("number").innerText = "0" + currentNumber;
+				} else {
+					document.getElementById("number").innerText = currentNumber;
+				}
+
+				// Kiểm tra nếu số hiện tại đã đạt được số ngẫu nhiên
+				if (currentNumber === targetNumber) {
+					clearInterval(interval); // Dừng lại
+				} else {
+					currentNumber++; // Tăng số lên 1
+				}
+			}, 50); // 50ms
+		}
+		function showNameMonth() {
+			switch (targetNumber) {
+				case 1: res = "January"; break;
+				case 2: res = "February"; break;
+				case 3: res = "March"; break;
+				case 4: res = "April"; break;
+				case 5: res = "May"; break;
+				case 6: res = "June"; break;
+				case 7: res = "July"; break;
+				case 8: res = "August"; break;
+				case 9: res = "September"; break;
+				case 10: res = "October"; break;
+				case 11: res = "November"; break;
+				case 12: res = "December"; break;
+				default: res = "Invalid"
+			}
+			document.getElementById("results").innerText = res;
+		}
+
+	</script>
+</body>
+
+</html>

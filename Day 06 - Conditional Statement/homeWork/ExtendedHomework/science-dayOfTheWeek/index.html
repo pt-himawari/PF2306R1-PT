@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Science Day Of The Week</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+	<style>
+		* {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+
+		body {
+			/* text-align: center; */
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container mt-2">
+		<div class="row ">
+
+			<h1 class="text-capitalize text-center text-primary fw-bolder mb-3">Science Day of the week</h1>
+			<div class="onetofive m-auto col-5 ">
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+						Enter Year :
+					</span>
+					<input type="number" name="year" onchange="getYear(this)" min="2000" max="9999" class="form-control">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text  text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+						Enter month :
+					</span>
+					<input type="number" name="month" onchange="getMonth(this)" min="1" max="12" class="form-control">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+						Enter the day of the month
+					</span>
+					<input type="number" name="day" onchange="getDayOfMonth(this)" class="form-control" min="1" max="31">
+				</div>
+				<div class="input-group input-group-sm mb-3">
+					<button onclick="checkDayOfWeek()" type="button" class=" fs-4 btn btn-primary text-capitalize">
+						Day of the week is
+					</button>
+					<p id="result" class="fs-1 fw-bolder text-info d-inline-block ps-3 "></p>
+				</div>
+
+
+			</div>
+		</div>
+
+		<script>
+			let h, q, m, j, k, year;
+
+			function getYear(obj) {
+				year = Number(obj.value);
+			}
+			function getMonth(obj) {
+				m = Number(obj.value);
+			}
+			function getDayOfMonth(obj) {
+				q = Number(obj.value);
+			}
+
+			function checkDayOfWeek() {
+
+				if (m == 1) {
+					year -= 1
+					m = 13
+				}
+				if (m == 2) {
+					year -= 1
+					m = 14
+				}
+				k = parseInt(year % 100);
+				j = parseInt(year / 100);
+				h = parseInt((q + (26 * (m + 1)) / 10 + k
+					+ k / 4 + j / 4 + 5 * j) % 7);
+				// h = (q + ((26 * (m + 1)) / 10) + k + k / 4 + j / 4 + 5 * j) % 7
+				switch (h) {
+					case 0: res = "Saturday"; break;
+					case 1: res = "Sunday"; break;
+					case 2: res = "Monday"; break;
+					case 3: res = "Tuesday"; break;
+					case 4: res = "Wednesday"; break;
+					case 5: res = "Thursday"; break;
+					case 6: res = "Friday"; break;
+				}
+				document.getElementById("result").innerText = res;
+				console.log("y ", year);
+				console.log("m ", m);
+				console.log("q ", q);
+				console.log("j ", j);
+
+
+				console.log("k ", k);
+				console.log("h ", h);
+				console.log("thu ", res);
+
+			}
+		</script>
+
+</body>
+
+</html>

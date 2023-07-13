@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science Day Of The Week</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .row {
+      padding: 0 150px;
+    }
+
+    body {
+      /* text-align: center; */
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row ">
+
+      <h1 class="text-capitalize text-center text-primary fw-bolder mb-3">Geometry Two Circles</h1>
+      <div class="mt-5 m-auto col-5 ">
+        <h3 class="text-capitalize text-center fw-bolder text-success mb-3"> circle one </h3>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+            X - coordinates
+          </span>
+          <input type="number" name="x1" onchange="getCoordinatesX(this,'x1')" class="form-control">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text  text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+            Y - coordinates
+          </span>
+          <input type="number" name="y1" onchange="getCoordinatesY(this,'y1')" class="form-control">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text  text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+            Radius
+          </span>
+          <input type="number" name="r1" onchange="getRadius(this,'r1')" class="form-control">
+        </div>
+
+
+
+
+
+
+      </div>
+      <div class="mt-5  m-auto col-5 ">
+        <h3 class="text-capitalize text-center fw-bolder text-success mb-3"> circle two </h3>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+            X - coordinates
+          </span>
+          <input type="number" name="x2" onchange="getCoordinatesX(this,'x2')" class="form-control">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text  text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+            Y - coordinates
+          </span>
+          <input type="number" name="y2" onchange="getCoordinatesY(this,'y2')" class="form-control">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text  text-capitalize text-success fw-bolder fs-5" id="inputGroup-sizing-sm">
+            Radius
+          </span>
+          <input type="number" name="r2" onchange="getRadius(this,'r2')" class="form-control">
+        </div>
+
+      </div>
+      <div class=" mt-3 text-center">
+        <button onclick="isInsideOrOverlaps()" type="button" class=" fs-4 btn btn-primary text-capitalize">
+          check
+        </button>
+        <p id="result" class="fs-3 fw-bolder text-info d-inline-block ps-3 "></p>
+      </div>
+    </div>
+
+    <script>
+
+
+      let x1, y1, x2, y2, r1, r2;
+      let res = document.getElementById("result")
+
+      function getCoordinatesX(obj, value) {
+        let coordsX = obj.value;
+        switch (value) {
+          case 'x1': x1 = Number(coordsX); break;
+          case 'x2': x2 = Number(coordsX); break;
+        }
+      }
+      function getCoordinatesY(obj, value) {
+        let coordsY = obj.value;
+        switch (value) {
+          case 'y1': y1 = Number(coordsY); break;
+          case 'y2': y2 = Number(coordsY); break;
+        }
+      }
+      function getRadius(obj, value) {
+        let radius = obj.value;
+        switch (value) {
+          case 'r1': r1 = Number(radius); break;
+          case 'r2': r2 = Number(radius); break;
+        }
+
+      }
+      function isInsideOrOverlaps() {
+        let distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        //so sanh khoang cach 
+        if (x1 == null || x2 == null || y1 == null || y2 == null || r1 == null || r2 == null) {
+          alert("Please enter enough value")
+        } else {
+          if (distance < Math.abs(r1 - r2)) {
+            res.innerText = "Circle 2 is inside circle1"
+
+          } else if (distance <= r1 + r2) {
+            res.innerText = "r2 overlaps r1";
+          } else {
+            res.innerText = "r2 does not overlap r1";
+          }
+        }
+
+
+
+
+      }
+
+
+
+    </script>
+
+</body>
+
+</html>
