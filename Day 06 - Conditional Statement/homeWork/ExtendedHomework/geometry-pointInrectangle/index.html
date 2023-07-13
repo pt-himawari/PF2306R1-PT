@@ -29,7 +29,7 @@
 	<div class="container mt-5">
 		<div class="row ">
 
-			<h1 class="text-capitalize text-center text-primary fw-bolder mb-3">Geometry point in a circle</h1>
+			<h1 class="text-capitalize text-center text-primary fw-bolder mb-3">Geometry point in a rectangle</h1>
 			<div class=" m-auto col-5 ">
 
 				<div class="input-group input-group-sm mb-3">
@@ -48,7 +48,7 @@
 				</div>
 
 				<div class="input-group input-group-sm mb-3">
-					<button onclick="isInside()" type="button" class=" fs-4 btn btn-primary text-capitalize">
+					<button onclick="checkInside()" type="button" class=" fs-4 btn btn-primary text-capitalize">
 						check
 					</button>
 					<p id="result" class="fs-3 fw-bolder text-info d-inline-block ps-3 "></p>
@@ -70,14 +70,13 @@
 				y = obj.value;
 
 			}
-			function isInside() {
-				let distance = Math.pow(Math.pow(x, 2) + Math.pow(y, 2), 0.5);
-				let check = distance <= 10;
-
+			function checkInside() {
+				let distanceX = Math.pow(Math.pow(x, 2), 0.5) <= 10 / 2;
+				let distanceY = Math.pow(Math.pow(y, 2), 0.5) <= 5 / 2;
 				if (x == null || y == null) {
 					alert("Please enter enough value");
 				} else {
-					check ? res.innerText = "Point is in the circle " : res.innerText = " Point is not in the circle"
+					distanceX && distanceY ? res.innerText = "Point is in the rectangle " : res.innerText = " Point is not in the rectangle"
 
 				}
 

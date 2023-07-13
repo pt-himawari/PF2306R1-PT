@@ -61,7 +61,7 @@
 		</div>
 
 		<script>
-			let h, q, m, j, k, year;
+			let h, q, m, j, k, year, res;
 
 			function getYear(obj) {
 				year = Number(obj.value);
@@ -84,10 +84,10 @@
 					m = 14
 				}
 				k = parseInt(year % 100);
-				j = parseInt(year / 100);
-				h = parseInt((q + (26 * (m + 1)) / 10 + k
+				j = Math.round(year / 100);
+				j = k ? j + 1 : j
+				h = Math.round((q + (26 * (m + 1)) / 10 + k
 					+ k / 4 + j / 4 + 5 * j) % 7);
-				// h = (q + ((26 * (m + 1)) / 10) + k + k / 4 + j / 4 + 5 * j) % 7
 				switch (h) {
 					case 0: res = "Saturday"; break;
 					case 1: res = "Sunday"; break;
