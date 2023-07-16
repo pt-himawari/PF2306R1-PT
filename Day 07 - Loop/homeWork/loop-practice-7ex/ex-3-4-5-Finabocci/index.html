@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+	<title>Fibonacci</title>
+
+</head>
+
+<body>
+	<div class="container mt-5">
+		<div class="row">
+			<h1 class="text-capitalize text-center mb-5 text-primary "> Display Fibonacci</h1>
+
+			<div class="col-md-8 mx-auto">
+				<div class="p-3 shadow">
+					<div class="mb-3">
+						<label for="result20First" class="form-label">Exercise 3 : First 20 numbers in the fibonacci
+							sequence</label>
+						<input id="result20First" type="text" disabled class="form-control" id="result" readonly>
+					</div>
+					<div class="mb-3">
+						<label for="resultDivisibleBy5" class="form-label">Exercise 4 : The first number is divisible by 5</label>
+						<input id="resultDivisibleBy5" type="text" disabled class="form-control" id="result" readonly>
+					</div>
+					<div class="mb-3">
+						<label for="resultTotal" class="form-label">Exercise 5 : Sum of the first 20 numbers</label>
+						<input id="resultTotal" type="text" disabled class="form-control" id="result" readonly>
+					</div>
+					<button onclick="showFibonacci()" class="btn btn-primary">Check</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+
+		let res20First = document.getElementById("result20First");
+		let resDivisibleBy5 = document.getElementById("resultDivisibleBy5");
+		let resultTotal = document.getElementById("resultTotal");
+
+		// hiển thị 20 số đầu tiên trong dãy finabocci
+		function First20NumbersFibonacci(n) {
+			// C1 : Đệ quy
+			// if (n <= 1) {
+			//   return n;
+			// } else {
+			//   return fibonacci(n - 1) + fibonacci(n - 2);
+			// }
+			// C2 : su dung vong lap
+			let prevNumber = 0; currentNumber = 1; nextNumber = 0;
+			let result = "1 ";
+			let count = 0;
+			if (n <= 1) {
+				return result += 1;
+			}
+			for (let i = 2; i <= n; i++) {
+				nextNumber = prevNumber + currentNumber;
+				prevNumber = currentNumber;
+				currentNumber = nextNumber;
+				result += currentNumber + "  ";
+			}
+			return result;
+		}
+
+		// Số đầu tiên trong dãy finabocci chia hết cho 5
+		function FibonacciDivisibleBy5(n) {
+			// C1 : Đệ quy
+			// if (n <= 1) {
+			//   return n;
+			// } else {
+			//   return fibonacci(n - 1) + fibonacci(n - 2);
+			// }
+			// C2 : su dung vong lap
+			let prevNumber = 0; currentNumber = 1; nextNumber = 0;
+			let result = 0;
+			let count = 0;
+			if (n <= 1) {
+				return result += 1;
+			}
+			for (let i = 2; i <= n; i++) {
+				nextNumber = prevNumber + currentNumber;
+				prevNumber = currentNumber;
+				currentNumber = nextNumber;
+				if (currentNumber % 5 == 0) {
+					result = currentNumber;
+					break;
+				}
+				// result += currentNumber + "  ";
+			}
+			return result;
+		}
+
+		// Tổng 20 số đầu tiên trong dãy
+		function sumOf20NumbersFi(n) {
+			let prevNumber = 0; currentNumber = 1; nextNumber = 0;
+			let sum = 1;
+			let count = 0;
+			if (n <= 1) {
+				return result += 1;
+			}
+			for (let i = 2; i <= n; i++) {
+				nextNumber = prevNumber + currentNumber;
+				prevNumber = currentNumber;
+				currentNumber = nextNumber;
+				sum += currentNumber;
+			}
+			return sum;
+
+		}
+		function showFibonacci() {
+
+			// let n = parseInt(number.value);
+			// Goi khi dung C1
+			// for (let i = 1; i <= n; i++) {
+			//   res.value += " " + fibonacci(i);
+			// }
+
+			// Hiên thị 20 số đầu tiên
+			res20First.value = First20NumbersFibonacci(20);
+			// số đầu tiên chia hết cho 5 FibonacciDivisibleBy5(n)
+			resDivisibleBy5.value = FibonacciDivisibleBy5(20);
+			// Tổng 20 số đầu tiên trong dãy
+			resultTotal.value = sumOf20NumbersFi(20);
+
+
+		}
+
+
+	</script>
+</body>
+
+</html>

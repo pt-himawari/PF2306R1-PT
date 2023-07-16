@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <title>Reverse Number</title>
+
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1 class="text-capitalize text-center mb-5 text-primary "> Reverse Number</h1>
+
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="p-3 shadow">
+          <div class="mb-3">
+            <label for="inputNumber" class="form-label">Enter number n:</label>
+            <input type="number" class="form-control" id="inputNumber" placeholder="Nhập số n">
+          </div>
+          <div class="mb-3">
+            <label for="result" class="form-label">Reverse number </label>
+            <input id="result" type="text" disabled class="form-control" id="result" readonly>
+          </div>
+          <button onclick="showReverse()" class="btn btn-primary">Check</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+
+    let number = document.getElementById("inputNumber");
+    let res = document.getElementById("result");
+
+
+    function reverse(n) {
+      let result = "";
+      while (n > 0) {
+        result += n % 10;
+        n = parseInt(n / 10);
+      }
+      return result
+    }
+
+    function showReverse() {
+      let n = parseInt(number.value);
+      res.value = reverse(n);
+      console.log(reverse(n))
+
+    }
+
+
+  </script>
+</body>
+
+</html>

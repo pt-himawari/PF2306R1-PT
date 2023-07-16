@@ -2,34 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game guessing number</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Game guessing number</title>
 </head>
 
 <body>
-  <script>
-    let numberRandom, count = 0;
-    let max = parseInt(prompt('Nhập vào khoảng số muốn đoán từ 0 tới max : '));
+	<script>
+		let numberRandom, count = 0;
+		let max = parseInt(prompt('Nhập vào khoảng số muốn đoán từ 0 tới max : '));
 
-    numberRandom = parseInt(Math.random() * max);
+		numberRandom = parseInt(Math.random() * max);
 
-    console.log(numberRandom);
-    document.write(numberRandom)
-    numberUser = parseInt(prompt('Nhập vào số bạn đoán : '));
+		console.log(numberRandom);
+		document.write(numberRandom)
+		numberUser = parseInt(prompt('Nhập vào số bạn đoán : '));
 
-    while (count != 3) {
-      if (numberUser == numberRandom) {
-        alert("Chúc Mừng Bạn Đã Đoán Đúng")
-      } else {
-        alert("Không chính xác")
-        numberUser = parseInt(prompt('Mời bạn nhập lại : '));
-        count += 1;
-      }
+		while (count != 3) {
+			if (numberUser == numberRandom) {
+				alert("Chúc Mừng Bạn Đã Đoán Đúng")
+			} else {
+				alert("Không chính xác")
+				numberUser = parseInt(prompt('Mời bạn nhập lại : '));
+				count += 1;
+			}
 
-    }
-  </script>
+		}
+	</script>
 </body>
 
 </html>
