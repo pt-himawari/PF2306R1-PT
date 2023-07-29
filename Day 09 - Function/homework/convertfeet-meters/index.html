@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convert Feet And Meters</title>
+</head>
+
+<body>
+  <script>
+    function footToMeter(foot) {
+      return (0.305 * foot)
+
+    }
+    function meterToFoot(meter) {
+      return (3.279 * meter)
+
+    }
+
+    function display() {
+      console.log('Feet   Meters   | Meters    Feet')
+      console.log('---------------------------------')
+      for (let f = 1.0, m = 20.0; f <= 10; f++, m = m + 5) {
+        //toFixed(1)
+        console.log(`${f.toFixed(1)}     ${footToMeter(f).toFixed(1)}     | ${m.toFixed(1)}      ${meterToFoot(m).toFixed(1)}`);
+
+      }
+    }
+    display();
+
+  </script>
+</body>
+
+</html>

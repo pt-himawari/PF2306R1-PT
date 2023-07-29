@@ -43,38 +43,39 @@
 
 		function fibonacci(n) {
 			// C1 : Đệ quy
-			// if (n <= 1) {
-			//   return n;
-			// } else {
-			//   return fibonacci(n - 1) + fibonacci(n - 2);
-			// }
+			if (n <= 1) {
+				return n;
+			} else {
+				return fibonacci(n - 1) + fibonacci(n - 2);
+			}
 
 			// C2 : su dung vong lap
-			let prevNumber = 0; currentNumber = 1; nextNumber = 0;
-			let result = "1 ";
-			if (n <= 1) {
-				return result += 1;
-			}
-			for (let i = 2; i <= n; i++) {
-				nextNumber = prevNumber + currentNumber;
-				prevNumber = currentNumber;
-				currentNumber = nextNumber;
-				result += currentNumber + " ";
-			}
-			return result;
+			// let prevNumber = 0; currentNumber = 1; nextNumber = 0;
+			// let result = "1 ";
+			// if (n <= 1) {
+			// 	return result += 1;
+			// }
+			// for (let i = 2; i <= n; i++) {
+			// 	nextNumber = prevNumber + currentNumber;
+			// 	prevNumber = currentNumber;
+			// 	currentNumber = nextNumber;
+			// 	result += currentNumber + " ";
+			// }
+			// return result;
 		}
 
 		function showFibonacci() {
 
 			let n = parseInt(number.value);
+			res.value = "";
 			// Goi khi dung C1
-			// for (let i = 1; i <= n; i++) {
-			//   res.value += " " + fibonacci(i);
-			// }
+			for (let i = 1; i <= n; i++) {
+				res.value = " " + fibonacci(i);
+			}
 
 			// Goi khi dung C2
-			res.value = fibonacci(n);
-			console.log(fibonacci(n))
+			// res.value = fibonacci(n);
+			// console.log(fibonacci(n))
 
 		}
 

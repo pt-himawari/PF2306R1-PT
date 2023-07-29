@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Palindrome</title>
+</head>
+
+<body>
+	<script>
+		// c1  chạy từ đầu và chạy từ cuối kiểm tra
+		function isPalindrome(str) {
+			for (let i = 0, j = str.length - 1; i < str.length / 2; i++, j--) {
+				if (str[i] != str[j]) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		// c2 
+		function reverseString(str) {
+			return str.split('').reverse().join('');
+		}
+		// c3
+		function reverseStr(str) {
+			let reversedStr = '';
+			for (let i = str.length - 1; i >= 0; i--) {
+				reversedStr += str.charAt(i);
+			}
+			return reversedStr;
+		}
+
+
+		let str = 'rotor';
+		// call c1
+		if (isPalindrome(str)) {
+			console.log(str + " : is a Palindrome");
+		} else {
+			console.log(str + " : not a Palindrome");
+
+		}
+		// call  c2 
+		if (reverseString(str) == str) {
+			console.log(str + " : is a Palindrome");
+		} else {
+			console.log(str + " : not a Palindrome");
+
+		}
+		// call 3
+		if (reverseString(str) == str) {
+			console.log(str + " : is a Palindrome");
+		} else {
+			console.log(str + " : not a Palindrome");
+
+		}
+
+	</script>
+</body>
+
+</html>

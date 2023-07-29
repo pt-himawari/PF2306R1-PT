@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Primes</title>
+</head>
+
+<body>
+  <script>
+    // check prime
+    function isPrime(num) {
+      for (let i = 2; i <= num / 2; i++) {
+        if (num % i == 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+    function isPrimeSqrt(num) {
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i == 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function displayPrimes() {
+      let res = ''
+      let start = Date.now();
+
+      for (let i = 2; i < 100; i++) {
+        if (isPrimeSqrt(i)) {
+          res += ' ' + i;
+          //console.log(i + " ");
+        }
+      }
+
+      let end = Date.now();
+      console.log(res);
+      console.log(" in  ", (end - start));
+
+    }
+
+    displayPrimes();
+    // let date = new Date();
+    // let  gio = date.getHours();
+    // let  phut = date.getMinutes();
+    // let giay = date.getSeconds();
+
+    // console.log(now);
+  </script>
+</body>
+
+</html>

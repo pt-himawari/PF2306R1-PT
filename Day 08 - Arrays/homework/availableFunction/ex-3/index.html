@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+
+
+		function convertUppercaseAndLowercase(input) {
+			let res = [];
+			for (let i = 0; i < input.length; i++) {
+				let character = input[i];
+				let current = input[i];
+
+				if (current === character.toLowerCase()) {
+					res.push(current.toUpperCase());
+				}
+				if (current === character.toUpperCase()) {
+					res.push(current.toLowerCase());
+				}
+
+				// res.push(current);
+			}
+			return res.join('');
+		}
+
+		let input = 'The Quick Brown Fox';
+		let result = convertUppercaseAndLowercase(input);
+		console.log(result); // Kết quả: "tHE qUICK bROWN fOX"
+
+
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // ex 3 binh phương
+    function square(num) {
+      return num * num
+    }
+    console.log('Square : ' + square(5));
+    // ex 4
+    function circleArea(radius) {
+
+      return (Math.PI * Math.pow(radius, 2))
+    }
+    function diameterOfACircle(radius) {
+      return (2 * Math.PI * radius)
+    }
+    console.log("Diameter : " + circleArea(4).toFixed(1))
+    console.log("Area : " + diameterOfACircle(4).toFixed(1))
+
+    // ex 5 giai thua
+    function factorial(num) {
+      if (num < 2) {
+        return num;
+      } else {
+        return num * factorial(num - 1)
+      }
+    }
+    console.log(factorial(6))
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let numbersArray = [0, 1, 2, 3, 4, 5, 0, 6, 7, 8, 9]
+    let arrayE = [];
+    let arrayO = [];
+
+    // let copyArray[(numbersArray.length / 2)] = 0;
+
+    for (let j = 0; j < numbersArray.length; j++) {
+
+      if (numbersArray[j] != 0) {
+
+        if (numbersArray[j] % 2 == 0) {
+          arrayE.push(numbersArray[j])
+        } else {
+          arrayO.push(numbersArray[j])
+        }
+      }
+
+    }
+
+    console.log([...arrayE, ...arrayO]);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display "Tôi không biết"</title>
+</head>
+
+<body>
+  <textarea id="inputTextArea" rows="4" cols="50" oninput="displayText()"></textarea>
+
+  <script>
+    function displayText() {
+      let input = ['t', 'o'];
+      const inputTextArea = document.getElementById('inputTextArea');
+      for (let i = 0; i < input.length; i++) {
+        inputTextArea.value += `${input[i]}`;
+      }
+
+    }
+  </script>
+</body>
+
+</html>

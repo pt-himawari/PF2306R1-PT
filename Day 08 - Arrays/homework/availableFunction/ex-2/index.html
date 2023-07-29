@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		function insertCharactersIntoTwoEvens(input) {
+			// Chuyển chuỗi số nhập vào thành mảng các chữ số
+			let digits = input.split('');
+			let resultArray = [];
+
+			for (let i = 0; i < digits.length; i++) {
+				let number = parseInt(digits[i]);
+				let nextNumber = parseInt(digits[i + 1]);
+				resultArray.push(number);
+				if (number % 2 == 0 && nextNumber % 2 == 0) {
+					resultArray.push('-');
+				}
+
+			}
+			return resultArray.join('');
+		}
+
+		function insertCharBetweenEvenNumbers(input) {
+			// Sử dụng Regular Expression
+			const result = input.replace(/([02468])(?=[02468])/g, '$1-');
+			return result;
+		}
+		let input = '22222333444';
+		let result = insertCharactersIntoTwoEvens(input);
+		let res = insertCharBetweenEvenNumbers(input);
+		console.log(result); //
+		console.log(res); //
+
+
+
+
+
+	</script>
+</body>
+
+</html>

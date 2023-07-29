@@ -2,138 +2,124 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
-  <title>Display Pattern</title>
-  <style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+	<title>Display Pattern</title>
 
-  </style>
 </head>
 
 <body>
-  <div class="container mt-5">
-
-    <div class="row justify-content-center">
-
-      <h1 class="text-capitalize text-center mb-5 text-primary "> Display Pattern</h1>
-      <div class=" col-md-8 d-flex ">
-        <div class="mx-auto shadow col-md-5 ">
-          <p id="triangleOne" class="  font-weight-bold text-success  fs-2 ps-5">
-          </p>
-        </div>
-        <div class="mx-auto shadow col-md-5 ">
-          <p id="triangleTwo" class="  font-weight-bold text-success  fs-2 ps-5">
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class=" my-5 row justify-content-center">
-
-      <div class=" col-md-8 d-flex ">
-        <div class="mx-auto shadow col-md-5 ">
-          <p id="triangleThree" class="  font-weight-bold text-success  fs-2 ps-5">
-          </p>
-        </div>
-        <div class="mx-auto shadow col-md-5 ">
-          <p id="triangleFour" class="  font-weight-bold text-success  fs-2 ps-5">
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
 
 
 
-  <script>
-    let star = "";
-    let triangleOne = document.getElementById("triangleOne");
-    let triangleTwo = document.getElementById("triangleTwo");
-    let triangleThree = document.getElementById("triangleThree");
-    let triangleFour = document.getElementById("triangleFour");
-    //triangleOne
-    for (let i = 1; i <= 5; i++) {
-      for (let j = 1; j <= i; j++) {
-        star += "*"
-        if (j == i) {
-          star += "<br/>"
-        }
+	<div class="container mt-5">
 
-      }
-      triangleOne.innerHTML = star;
-      console.log(star)
-    }
-    //triangleTwo
-    star = '';
-    for (let i = 5; i > 0; i--) {
-      for (let j = i; j > 0; j--) {
-        star += "*"
-        if (j == 1) {
-          star += "<br/>"
-        }
+		<div class="row justify-content-center">
 
-      }
-      triangleTwo.innerHTML = star;
-      console.log(star)
-    }
-    //triangleThree
-    star = '';
-    let n = 5;
-    for (let i = n; i > 0; i--) {
-      for (let j = i - 1; j > 0; j--) {
-        star += "&nbsp;&nbsp;"
-      }
-      for (let k = (n - i) + 1; k > 0; k--) {
-        star += "*"
-        if (k == 1) {
-          star += "<br/>"
-        }
-      }
-      triangleThree.innerHTML = star;
-      console.log(star)
-    }
-    //triangleFour
-    star = '';
-    n = 5;
-    for (let i = 0; i < n; i++) {
-      for (let j = 0; j < i; j++) {
-        star += "&nbsp;&nbsp;"
-        // if (j == i - 1) {
-        //   star += "<br/>"
-        // }
-      }
+			<h1 class="text-capitalize text-center mb-5 text-primary "> Display Pattern</h1>
+			<div class=" col-md-8 d-flex ">
+				<div class="mx-auto shadow col-md-5 ">
+					<p id="triangleOne" class="  font-weight-bold text-success  fs-2 ps-5">
+					</p>
+				</div>
+				<div class="mx-auto shadow col-md-5 ">
+					<p id="triangleTwo" class="  font-weight-bold text-success  fs-2 ps-5">
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class=" my-5 row justify-content-center">
 
-      for (let h = i; h < n; h++) {
-        star += "*"
-        if (h == n - 1) {
-          star += "<br/>"
-        }
-
-      }
-
-      triangleFour.innerHTML = star;
-      console.log(star)
-    }
-
-    // let row = '';
-    // for (let i = 1; i <= 5; i++) {
-
-    //   for (let j = 1; j <= i; j++) {
-    //     row += '*';
-    //   }
-    //   console.log(row);
-    // }
+			<div class=" col-md-8 d-flex ">
+				<div class="mx-auto shadow col-md-5 ">
+					<p id="triangleThree" class="  font-weight-bold text-success  fs-2 ps-5">
+					</p>
+				</div>
+				<div class="mx-auto shadow col-md-5 ">
+					<p id="triangleFour" class="  font-weight-bold text-success  fs-2 ps-5">
+					</p>
+				</div>
+			</div>
+		</div>
 
 
 
+	</div>
 
-  </script>
+
+
+	<script>
+		let star = '';
+		let triangleOne = document.getElementById("triangleOne");
+		let triangleTwo = document.getElementById("triangleTwo");
+		let triangleThree = document.getElementById("triangleThree");
+		let triangleFour = document.getElementById("triangleFour");
+
+		//triangleOne
+		for (let i = 1; i <= 5; i++) {
+			for (let j = 1; j <= i; j++) {
+				// star += "*"
+				star += "" + j;
+			}
+			star += "<br/>"
+			triangleOne.innerHTML = star;
+			console.log(star)
+		}
+
+		//triangleTwo
+		star = '';
+		for (let i = 5; i > 0; i--) {
+			for (let j = i; j > 0; j--) {
+				// star += "*"
+				star += "" + j;
+
+			}
+			star += "<br/>"
+			triangleTwo.innerHTML = star;
+			console.log(star)
+		}
+
+		//triangleThree
+		star = '';
+		let n = 5;
+		for (let i = n; i > 0; i--) {
+
+			for (let j = i - 1; j > 0; j--) {
+				star += "&nbsp;&nbsp;&nbsp;"
+			}
+			for (let k = (n - i) + 1; k > 0; k--) {
+				// star += "*"
+				star += "" + k;
+
+			}
+			star += "<br/>"
+			triangleThree.innerHTML = star;
+			console.log(star)
+		}
+
+		//triangleFour
+		star = '';
+		n = 5;
+		for (let i = 1; i <= n; i++) {
+			for (let j = 1; j <= i; j++) {
+				star += "&nbsp;&nbsp;&nbsp"
+			}
+			for (let h = i; h <= n; h++) {
+				star += "*"
+				// star += "" + h;
+
+			}
+			star += "<br/>"
+			triangleFour.innerHTML = star;
+			console.log(star)
+		}
+	</script>
 </body>
 
 </html>

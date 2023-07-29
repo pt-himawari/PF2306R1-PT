@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Tic Tac Toe</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+	<style>
+		#board {
+			display: grid;
+			grid-template-columns: 60px 60px 60px;
+			grid-gap: 10px;
+			justify-content: center;
+			/* margin: 20px; */
+		}
+
+		.cell {
+			width: 60px;
+			height: 60px;
+			border: 1px solid black;
+			display: grid;
+			justify-content: center;
+			align-items: center;
+			font-size: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container mt-5">
+		<div class="row">
+			<div class=" col-md-4 m-auto  ">
+				<h1 class="text-center mb-3 text-primary ">Game Tic Tac Toe</h1>
+				<div id="board">
+
+				</div>
+				<div class="text-center">
+					<button onclick="resetBoard()" class="btn  btn-outline-dark mt-4" id="resetBtn">Reset</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script>
+
+	</script>
+</body>
+
+</html>
