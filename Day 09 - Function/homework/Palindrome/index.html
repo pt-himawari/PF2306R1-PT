@@ -12,6 +12,8 @@
 	<script>
 		// c1  chạy từ đầu và chạy từ cuối kiểm tra
 		function isPalindrome(str) {
+
+
 			for (let i = 0, j = str.length - 1; i < str.length / 2; i++, j--) {
 				if (str[i] != str[j]) {
 					return false;
@@ -21,9 +23,11 @@
 		}
 
 		// c2 
+
 		function reverseString(str) {
 			return str.split('').reverse().join('');
 		}
+
 		// c3
 		function reverseStr(str) {
 			let reversedStr = '';
@@ -42,7 +46,9 @@
 			console.log(str + " : not a Palindrome");
 
 		}
-		// call  c2 
+		// // call  c2 
+
+
 		if (reverseString(str) == str) {
 			console.log(str + " : is a Palindrome");
 		} else {
@@ -50,7 +56,7 @@
 
 		}
 		// call 3
-		if (reverseString(str) == str) {
+		if (reverseStr(str) == str) {
 			console.log(str + " : is a Palindrome");
 		} else {
 			console.log(str + " : not a Palindrome");

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check integer</title>
+</head>
+
+<body>
+    <script>
+
+
+        function isIntegerNumber(value) {
+
+            if (Number.isInteger(value) && (Number(value) >= 0)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkIntegerInput() {
+            let input = prompt('Enter a number:');
+            let n = parseFloat(input);
+
+            while (input == '') {
+                input = prompt('Enter character');
+            }
+
+            // if (input != '') {
+
+            if (isIntegerNumber(n)) {
+                console.log(`${input} is integer`);
+            } else {
+                console.log(`${input} is not integer`);
+            }
+            // }
+        }
+
+
+        // Gọi hàm để kiểm tra đầu vào từ người dùng
+        checkIntegerInput();
+
+
+
+    </script>
+</body>
+
+</html>

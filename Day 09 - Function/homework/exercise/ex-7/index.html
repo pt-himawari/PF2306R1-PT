@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min-values</title>
+</head>
+
+<body>
+    <script>
+        function checkMin(a, b, c) {
+            let min = a;
+            if (b < min) {
+                min = b;
+            }
+            if (c < min) {
+                min = c;
+            }
+
+            return min;
+        }
+
+        function display() {
+            let a = prompt('Enter number 1: ');
+            let b = prompt('Enter number 2: ');
+            let c = prompt('Enter number 3: ');
+
+            console.log(`Number 1: ${a}, number 2: ${b}, number 3: ${c}`);
+            console.log('Min: '+checkMin(a, b, c));
+        }
+        display();
+    </script>
+</body>
+
+</html>

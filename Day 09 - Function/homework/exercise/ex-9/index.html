@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reverse array</title>
+</head>
+
+<body>
+    <script>
+
+        function reverseArray(arr) {
+            let res = [];
+
+            for (let i = arr.length - 1; i >= 0; i--) {
+                res.push(arr[i]);
+            }
+            return res;
+        }
+
+        let numbers = [1, 2, 3, 3, 4, 5];
+        console.log('Mảng ban đầu:', numbers);
+
+        console.log('Mảng sau đảo ngược: ', reverseArray(numbers));
+    </script>
+</body>
+
+</html>

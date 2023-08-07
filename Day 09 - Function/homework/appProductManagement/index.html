@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Product Table</title>
+	<!-- Link to Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+	<style>
+		.inputStyle {
+			background: none;
+			outline: none;
+			border: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container mt-5">
+		<h1>Product Table</h1>
+		<div class="row">
+			<div class="col-4 input-group mb-3 w-50">
+				<input type="text" class="form-control" placeholder="New Product" id="newProductNameInput">
+				<button class="btn btn-primary ms-1 px-4 py-2 " type="button" onclick="addProduct()">Add</button>
+			</div>
+		</div>
+		<table class="table table-striped text-center">
+			<thead>
+				<tr>
+					<th scope="col">No.</th>
+					<th scope="col">Product Name</th>
+					<th scope="col">Edit</th>
+					<th scope="col">Delete</th>
+				</tr>
+			</thead>
+			<tbody id="product-table">
+
+			</tbody>
+
+		</table>
+	</div>
+	<script>
+
+		let products = ['Sony Xperia', 'Sammung Galaxy', 'Nokia 6',
+			'Xiaomi Redmi Note 4', 'Apple Iphone 6s',
+			'Xiaomi Mi 5s Plus', 'Apple Iphone 8 Plus',
+			'Fujitsu F-04E', 'Oppo A71']
+		let productElement = document.getElementById('product-table');//  sua loi dat ten
+		let newProduct = document.getElementById('newProductNameInput');
+
+		// display table products
+		function displayProducts(products) {
+			productElement.innerHTML = '';
+			for (let i = 0; i < products.length; i++) {
+				productElement.innerHTML +=
+					`<tr>
+					<td class="col-1">${i + 1}</td>
+					<td class="col-4">
+						<input type="text" value="${products[i]}" readonly class="form-control inputStyle "  id="productNameInput${i}">
+					</td>
+					<td class="col-3">
+						<button class="btn btn-primary" id="editButton${i}" onclick="enableEditProduct(${i})" type="button">Edit</button>
+						<button class="btn btn-success d-none" id="saveButton${i}" type="button"  onclick="saveChanges(${i})">Save</button>
+					</td>
+					<td class="col-3"><button class="btn btn-danger" type="button" onclick="deleteProduct(${i})">Delete</button></td>
+				</tr>`
+			}
+		}
+		// add product
+		function addProduct() {
+			products.push(newProduct.value);
+			displayProducts(products);
+			newProduct.value = "";
+		}
+
+		function enableEditProduct(index) {
+			let productInput = document.getElementById(`productNameInput${index}`);
+			productInput.readOnly = false;
+			productInput.focus();
+
+			document.getElementById(`editButton${index}`).classList.add('d-none');
+			document.getElementById(`saveButton${index}`).classList.remove('d-none');
+		}
+
+		function saveChanges(index) {
+			let productInput = document.getElementById(`productNameInput${index}`);
+			products[index] = productInput.value;
+			productInput.value = products[index]
+			productInput.readOnly = true;
+
+			document.getElementById(`editButton${index}`).classList.remove('d-none');
+			document.getElementById(`saveButton${index}`).classList.add('d-none');
+
+		}
+		//
+		function deleteProduct(index) {
+			products.splice(index, 1)
+			displayProducts(products);
+		}
+		displayProducts(products);
+	</script>
+</body>
+
+</html>

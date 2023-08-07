@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check number</title>
+</head>
+
+<body>
+    <script>
+
+
+        function isNumber(str) {
+            return !isNaN(str);
+        }
+
+        function checkNumericInput() {
+            let str = prompt('Enter character');
+
+            while (str == "") {
+                str = prompt('Enter character');
+            }
+            // if (str != '') {
+            if (isNumber(str)) {
+                console.log("is Number");
+            } else {
+                console.log("Not number");
+            }
+            // }
+        }
+
+        // Gọi hàm để kiểm tra đầu vào từ người dùng
+        checkNumericInput();
+
+    </script>
+</body>
+
+</html>
