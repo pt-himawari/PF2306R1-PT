@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Temperature Class </title>
+</head>
+
+<body>
+	<script>
+		class Temperature {
+			constructor(celsius) {
+				if (this.#validateCelsius(celsius)) {
+					this.celsius = celsius;
+
+				} else {
+					throw Error("The input degrees Celsius must higher than -273 ");
+				}
+
+			}
+			toFahrenheit() {
+				return this.celsius * 9 / 5 + 32;
+
+			}
+			toKelvin(celsius) {
+				return this.celsius + 273.15;
+			}
+			toString() {
+
+				return `Celsius : ${this.celsius} , Fahrenheit : ${this.toFahrenheit()} , Kelvin : ${this.toKelvin()}  `;
+			}
+			#validateCelsius(celsius) {
+				return celsius >= -273;
+
+			}
+		}
+		let temperature = new Temperature(25);
+		console.log(temperature.toString());
+
+	</script>
+</body>
+
+</html>

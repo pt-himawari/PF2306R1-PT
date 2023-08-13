@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adam Eva </title>
+</head>
+
+<body>
+  <script>
+    class Apple {
+      constructor() {
+        this._weight = 10;
+
+      }
+      decrease() {
+        if (this._weight > 0) {
+          this._weight--;
+        }
+
+      }
+      isEmpty() {
+        return this._weight == 0;
+      }
+      getWeight() {
+        return this._weight;
+      }
+
+    }
+    class Human {
+      constructor(name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        // this.apple = new Apple();
+
+      }
+
+      isMale() {
+        return this.gender == true;
+      }
+      setGender(gender) {
+        this.gender = gender;
+
+      }
+      checkApple(apple) {
+        return apple.isEmpty();
+      }
+
+      eat(apple) {
+        if (!this.checkApple()) {
+          apple.decrease();
+          this.weight++;
+
+        }
+
+      }
+      say(str) {
+        console.log(`${this.name} says: "${str}"`);
+      }
+      getName() {
+        return this.name;
+      }
+      setName(newName) {
+        this.name = newName;
+
+      }
+      getWeight() {
+        return this.weight;
+      }
+      setWeight(newWeight) {
+        this.weight = newWeight;
+      }
+
+    }
+
+
+    // Sử dụng lớp Human và Apple
+    let adam = new Human("Adam", true, 70);
+    let eva = new Human("Eva", false, 60);
+
+    // let apple = new Apple();
+    // apple.weight = 11;
+    // console.log(`${apple.weight}`);
+    // console.log(`${apple.getWeight()}`);
+
+    console.log(`${adam.getName()} is male: ${adam.isMale()}, weight ${adam.getWeight()}`);
+    console.log(`${eva.getName()} is male: ${eva.isMale()}, weight ${eva.getWeight()}`);
+
+    adam.say("Hello, Eva!");
+    eva.say("Hi, Adam!");
+    adam.say("Let's eat an apple.");
+    eva.say("Yes! Thanks!");
+
+    console.log(`Apple weight: ${eva.apple.getWeight()}`);
+    console.log(`Is Eva's apple empty? ${eva.checkApple()}`);
+
+    eva.eat();
+    eva.eat();
+    console.log(`${eva.getName()} is female: ${!eva.isMale()}, weight ${eva.getWeight()}`);
+    console.log(`Apple weight after eating: ${eva.apple.getWeight()}`);
+
+    // adam.eat();
+    // adam.eat();
+    // console.log(`${adam.getName()} is female: ${!adam.isMale()}, weight ${adam.getWeight()}`);
+    // console.log(`Apple weight after eating: ${adam.apple.getWeight()}`);
+
+  </script>
+</body>
+
+</html>

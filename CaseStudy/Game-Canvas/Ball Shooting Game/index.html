@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ball Shooting Game</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+    }
+
+    /* CSS cho hiệu ứng xuất hiện từ trên xuống
+    .slide-down-enter-active,
+    .slide-down-leave-active {
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    .slide-down-enter,
+    .slide-down-leave-to {
+      transform: translateY(-100%);
+      opacity: 0;
+    } */
+    /* #dialog {
+      transform: translateY(-100%);
+      opacity: 0;
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="position-fixed bg-transparent fs-3 top-0 start-0  mt-2 ms-2 p-2 bg-black text-white user-select-none">
+    <span>Score:
+    </span><span id="scoreElement">0</span>
+  </div>
+  <canvas></canvas>
+
+  <div id="dialog" class="position-fixed top-50 start-50 translate-middle bg-white p-4 rounded shadow"
+    style="width: 400px;">
+    <h1 class="text-center mb-3" id="bigScore">0</h1>
+    <p class="text-center mb-3">Points</p>
+    <button class="btn btn-primary d-block mx-auto rounded-pill fs-4 p-2 w-75" id="startBtn">Start Game</button>
+  </div>
+
+  <!-- Centered alert -->
+  <!-- <div id="dialog"
+    class="position-fixed top-50 start-50 translate-middle bg-white p-4 rounded shadow slide-down-enter-active slide-down-leave-active"
+    style="width: 400px;display: none;">
+    <h1 class="text-center mb-3" id="score">0</h1>
+    <p class="text-center mb-3">points</p>
+    <button class="btn btn-primary d-block mx-auto rounded-pill" id="startBtn" style="width: 90%;">Start Game</button>
+  </div> -->
+
+
+
+  <!-- <div id="dialog"
+    class="position-fixed top-0 start-50 translate-middle-x bg-white p-4 rounded shadow-lg slide-down-enter-active slide-down-leave-active">
+    <p class="fs-1 mb-2" id="score">0</p>
+    <p class="fs-5 mb-3">points</p>
+    <button class="btn btn-primary btn-lg btn-rounded" id="startBtn">Start Game</button>
+  </div> -->
+
+
+  <script src="./assets/library/gsap-public/minified/gsap.min.js"></script>
+  <script src="./assets/javascript/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
+
+</body>
+
+</html>

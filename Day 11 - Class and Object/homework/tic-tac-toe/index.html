@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<title>Bootstrap Table Example</title>
+	<style>
+		body {
+			background: #000;
+			background-image: url('background.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		tbody {
+			border-radius: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="text-center my-4 text-light">Tic Tac Toe</h1>
+		<div class="text-center">
+			<table class="  table d-flex justify-content-center table-bordered">
+				<tbody id="board" class=" shadow rounded-3 p-1 bg-light ">
+
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+	<script>
+		const N = 15;
+		const NO_OF_SYMBOL_TO_WIN = 5;
+		let gameMatrix = [];
+		let count = -1;
+		let gameBoard = document.getElementById("board");
+		let symbol;
+
+		function init() {
+			for (let row = 0; row < N; row++) {
+				gameMatrix[row] = [];
+				for (let col = 0; col < N; col++) {
+					gameMatrix[row][col] = "";
+				}
+			}
+		}
+		function displayGameBoard() {
+			let str = "";
+			for (let row = 0; row < N; row++) {
+				str += "<tr class=\"d-flex\">"
+				for (let col = 0; col < N; col++) {
+					let currentVal = gameMatrix[row][col] == 0 ? "" : gameMatrix[row][col];
+					let style = gameMatrix[row][col];
+					if (style == "X") {
+						str += `<td class="  p-0 d-flex align-items-center fs-4  text-danger justify-content-center" width="50" height="50" id="${row}-${col}" onclick="move(this)">${currentVal}</td>`;
+
+					} else {
+
+						str += `<td class=" p-0 d-flex align-items-center text-primary fs-3  justify-content-center" width="50" height="50" id="${row}-${col}" onclick="move(this)">${currentVal}</td>`;
+					}
+				}
+				str += "</tr>";
+			}
+			gameBoard.innerHTML = str;
+		}
+
+		function isChecked(positionArray) {
+			let x = positionArray[0];
+			let y = positionArray[1];
+			return gameMatrix[x][y] != "";
+		}
+
+		function getSymbol(count) {
+			return count % 2 == 0 ? "X" : "O"
+		}
+
+		function move(obj) {
+
+			let position = obj.id.split("-");
+			console.log(position);
+			let isCheckedCell = isChecked(position);
+			// console.log(!isCheckedCell);
+			symbol = getSymbol(count);
+			if (!isCheckedCell) {
+				gameMatrix[position[0]][position[1]] = symbol;
+
+				count++;
+				// console.log(gameMatrix);
+				// console.log("check horzizo : " + isGameOverDiagonal(gameMatrix));
+				displayGameBoard();
+				if (isGameOverHorizontal(gameMatrix) || isGameOverVertical(gameMatrix) || isGameOverDiagonal(gameMatrix)) {
+					setTimeout(function () {
+						alert(`Player ${symbol} wins!`);
+						play();
+					}, 100)
+
+
+				}
+
+			}
+
+		}
+		function isGameOverDiagonal(arr) {
+			// check nua tam giac tren  tu trai qua  tren//
+			for (let i = arr.length - 1; i >= 0; i--) {
+				let col = 0;
+				let row = i;
+				let current = arr[row][col];
+				let consecutive = 0;
+				while (row >= 0) {
+					if (current == arr[row][col] && arr[row][col] != "") {
+						consecutive++;
+						if (consecutive == NO_OF_SYMBOL_TO_WIN) {
+							return true;
+						}
+
+					} else {
+						current = arr[row][col];
+						consecutive = 1;
+					}
+					row--;
+					col++;
+				}
+
+			}
+			// check nua tam giac duoi tu trai qua // duoi
+			for (let j = 0; j < arr[0].length; j++) {
+				let col = j;
+				let row = arr.length - 1;
+				let current = arr[row][col];
+				let consecutive = 0;
+
+				while (row >= 0 && col < arr[0].length) {
+					if (current == arr[row][col] && arr[row][col] != "") {
+						consecutive++;
+						if (consecutive == NO_OF_SYMBOL_TO_WIN) {
+							return true;
+						}
+
+					} else {
+						current = arr[row][col];
+						consecutive = 1;
+					}
+					row--;
+					col++;
+				}
+
+			}
+			// check nua tam giac tren phai qua duoi\\
+			for (let k = arr[0].length - 1; k >= 0; k--) {
+				let col = k;
+				let row = arr.length - 1;
+				let current = arr[row][col];
+				let consecutive = 0;
+				while (col >= 0 && row >= 0) {
+					if (current == arr[row][col] && arr[row][col] != "") {
+						consecutive++;
+						if (consecutive == NO_OF_SYMBOL_TO_WIN) {
+							return true;
+						}
+
+					} else {
+						current = arr[row][col];
+						consecutive = 1;
+					}
+					row--;
+					col--;
+
+				}
+			}
+			// check nua tam giac tren phai qua \\tren
+			for (let h = arr.length - 1; h >= 0; h--) {
+				let col = arr[0].length - 1;
+				let row = h;
+				let current = arr[row][col];
+				let consecutive = 0;
+				while (col >= 0 && row >= 0) {
+					if (current == arr[row][col] && arr[row][col] != "") {
+						consecutive++;
+						if (consecutive == NO_OF_SYMBOL_TO_WIN) {
+							return true;
+						}
+
+					} else {
+						current = arr[row][col];
+						consecutive = 1;
+					}
+					row--;
+					col--;
+
+				}
+			}
+
+			return false;
+
+		}
+		function isGameOverVertical(arr) {
+			for (let col = 0; col < arr[0].length; col++) {
+				let current = arr[0][col];
+				let consecutive = 0;
+				for (let row = 0; row < arr.length; row++) {
+					if (current == arr[row][col] && arr[row][col] != "") {
+						consecutive++;
+						if (consecutive == NO_OF_SYMBOL_TO_WIN) {
+							return true;
+						}
+
+					} else {
+						consecutive = 1;
+						current = arr[row][col];
+					}
+				}
+
+			}
+			return false;
+		}
+		function isGameOverHorizontal(arr) {
+			for (let row = 0; row < arr.length; row++) {
+				let current = arr[row][0];
+				let consecutive = 0;
+				for (let col = 0; col < arr[row].length; col++) {
+					if (current == arr[row][col] && arr[row][col] != "") {
+						consecutive++;
+						if (consecutive == NO_OF_SYMBOL_TO_WIN) {
+							return true;
+						}
+
+					} else {
+						consecutive = 1;
+						current = arr[row][col];
+					}
+				}
+
+			}
+			return false;
+		}
+		function play() {
+			init();
+			displayGameBoard();
+		}
+		function resetBoard() {
+
+		}
+		play();
+		// displayGameBoard();
+	</script>
+</body>
+
+</html>

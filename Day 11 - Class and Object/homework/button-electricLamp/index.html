@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Electric Lamp</title>
+</head>
+
+<body>
+  <script>
+    class ElectricLamp {
+      constructor() {
+        this.status = false;
+      }
+      turnOff() {
+        this.status = false;
+        console.log("Lamp is turned off.");
+      }
+      turnOn() {
+        this.status = true;
+        console.log("Lamp is turned on.");
+      }
+    }
+    class SwitchButton {
+      constructor() {
+        this.status = false;
+        // this._lamp = new ElectricLamp();
+      }
+      connectToLamp(lamp) {
+        this._lamp = lamp;
+
+      }
+      switchOff() {
+        this.status = false;
+        this._lamp.turnOff();
+      }
+      switchOn() {
+        this.status = true;
+        this._lamp.turnOn();
+      }
+    }
+
+    let lamp = new ElectricLamp();
+    let button = new SwitchButton();
+
+    button.connectToLamp(lamp); // Kết nối nút với đèn
+
+    // Bật đèn bằng nút
+    for (let i = 1; i <= 10; i++) {
+      console.log(` ${i} `);
+      button.switchOn();
+      button.switchOff();
+
+    }
+
+
+  </script>
+
+</body>
+
+</html>

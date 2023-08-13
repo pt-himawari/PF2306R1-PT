@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rectangle Class</title>
+	<style>
+		* {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas></canvas>
+	<script>
+		let res = document.getElementById("result");
+		let canvas = document.querySelector('canvas');
+		let ctx = canvas.getContext('2d');
+
+		class Rectangle {
+			constructor(x, y, width, height, color) {
+				this.x = x;
+				this.y = y;
+				this.width = width;
+				this.height = height;
+				this.color = color;
+			}
+			getArea() {
+				return this.width * this.height;
+			}
+			getDiameter() {
+				return (this.width + this.height) * 2;
+			}
+			setWidth(newWidth) {
+				this.width = newWidth;
+
+			}
+
+			setHeight(newHeight) {
+				this.newHeight = newHeight;
+
+			}
+			setColor(newColor) {
+				this.color = newColor;
+
+			}
+			drawObject() {
+				ctx.fillStyle = this.color;
+				ctx.fillRect(this.x, this.y, this.width, this.height);
+
+
+				ctx.font = "30px Arial";
+				ctx.textAlign = "center"; // Căn giữa theo chiều ngang
+				ctx.textBaseline = "top"; // Hiển thị bên dưới hình vuông
+				let centerX = canvas.width / 2;
+				let textY = this.y + this.height + 20; // Khoảng cách từ hình vuông đến văn bản
+				ctx.fillText(`This ${this.constructor.name}  S: ${this.getArea()}, C: ${this.getDiameter()} `, centerX, textY);
+
+
+			}
+		}
+		canvas.width = '600';
+		canvas.height = '600';
+		let width = 500, height = 300;
+		let x = (canvas.width - width) / 2;
+		let y = (canvas.height - height) / 2;
+
+		let rectangle = new Rectangle(x, y, width, height, "#2980b9");
+		rectangle.drawObject();
+
+		// rectangle.setWidth(100);
+		// rectangle.setHeight(500);
+		// rectangle.setColor("red");
+		// rectangle.drawObject();
+
+	</script>
+</body>
+
+</html>
