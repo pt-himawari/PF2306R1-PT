@@ -2,77 +2,205 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ball Shooting Game</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ball ZiZi</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<!-- Thư viện Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: black;
-    }
+	<style>
+		body {
+			background-color: black;
+			margin: 0;
+			padding: 0;
+		}
 
-    /* CSS cho hiệu ứng xuất hiện từ trên xuống
-    .slide-down-enter-active,
-    .slide-down-leave-active {
-      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    }
+		.info-icon {
+			/* position: fixed; */
+			/* top: 20px; */
+			/* right: 20px; */
+			cursor: pointer;
+			/* font-size: 50px; */
+			/* color: aliceblue; */
+		}
 
-    .slide-down-enter,
-    .slide-down-leave-to {
-      transform: translateY(-100%);
-      opacity: 0;
-    } */
-    /* #dialog {
-      transform: translateY(-100%);
-      opacity: 0;
-    } */
-  </style>
+		.setting-option {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			margin-bottom: 10px;
+		}
+
+		.setting-label {
+			flex: 1;
+		}
+
+		.volume-controls {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			/* Đảm bảo rằng volume-controls chiếm hết chiều rộng của setting-option */
+		}
+
+		.setting-icon {
+			margin-right: 10px;
+		}
+
+		.volume-input {
+			width: 100%;
+		}
+
+		.gradient-text {
+			font-size: 36px;
+			font-weight: bold;
+			text-transform: uppercase;
+			padding: 10px;
+			border-radius: 10px;
+			background-image: linear-gradient(45deg, #FFC107, #FF9800, #E91E63, #9C27B0, #3F51B5);
+			/* Nhiều màu gradient */
+			background-clip: text;
+			-webkit-background-clip: text;
+			color: transparent;
+			/* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+			text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+			/* Đổ bóng rõ nét hơn *
+      /* Đổ bóng */
+		}
+	</style>
 </head>
 
 <body>
-  <div class="position-fixed bg-transparent fs-3 top-0 start-0  mt-2 ms-2 p-2 bg-black text-white user-select-none">
-    <span>Score:
-    </span><span id="scoreElement">0</span>
-  </div>
-  <canvas></canvas>
+	<div class="position-fixed bg-transparent fs-3 top-0 start-0  mt-2 ms-2 p-2 bg-black text-white user-select-none">
+		<span>Score:
+		</span><span id="scoreElement">0</span>
+	</div>
 
-  <div id="dialog" class="position-fixed top-50 start-50 translate-middle bg-white p-4 rounded shadow"
-    style="width: 400px;">
-    <h1 class="text-center mb-3" id="bigScore">0</h1>
-    <p class="text-center mb-3">Points</p>
-    <button class="btn btn-primary d-block mx-auto rounded-pill fs-4 p-2 w-75" id="startBtn">Start Game</button>
-  </div>
+	<canvas></canvas>
 
-  <!-- Centered alert -->
-  <!-- <div id="dialog"
-    class="position-fixed top-50 start-50 translate-middle bg-white p-4 rounded shadow slide-down-enter-active slide-down-leave-active"
-    style="width: 400px;display: none;">
-    <h1 class="text-center mb-3" id="score">0</h1>
-    <p class="text-center mb-3">points</p>
-    <button class="btn btn-primary d-block mx-auto rounded-pill" id="startBtn" style="width: 90%;">Start Game</button>
-  </div> -->
-
-
-
-  <!-- <div id="dialog"
-    class="position-fixed top-0 start-50 translate-middle-x bg-white p-4 rounded shadow-lg slide-down-enter-active slide-down-leave-active">
-    <p class="fs-1 mb-2" id="score">0</p>
-    <p class="fs-5 mb-3">points</p>
-    <button class="btn btn-primary btn-lg btn-rounded" id="startBtn">Start Game</button>
-  </div> -->
+	<div id="gameOver" class="position-fixed top-50 start-50 translate-middle bg-white p-4 rounded shadow d-none"
+		style="width: 400px;">
+		<h1 class="text-center mb-3" id="bigScore">0</h1>
+		<p class="text-center mb-3">Points</p>
+		<button class="btn btn-primary d-block mx-auto rounded-pill fs-4 p-2 w-75" id="replayBtn">Replay</button>
+	</div>
+	<div id="dialog" class="position-fixed top-50 start-50 translate-middle bg-white p-4 rounded shadow">
+		<h1 class="text-center mb-3 gradient-text fs-1">Welcome to Ball ZiZi!</h1>
+		<p class="text-center  mb-3 fs-4 text-info-emphasis  ">Click - Blast - Score: <br>Ball Zizi's Colorful
+			Mayhem!
+		</p>
+		<button class="btn mt-3 btn-primary d-block mx-auto rounded-pill fs-4 p-2 w-75" id="startBtn">Start
+			Game</button>
+	</div>
 
 
-  <script src="./assets/library/gsap-public/minified/gsap.min.js"></script>
-  <script src="./assets/javascript/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
+	<!-- // ---------------------------------------------------------------- -->
+	<div class="info-icon position-fixed fs-1 top-0 me-2  text-light end-0">
+		<i class="fas fa-info-circle" data-bs-toggle="modal" data-bs-target="#infoModal"></i>
+	</div>
+	<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-center" id="infoModalLabel">Ball ZiZi</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+
+					<h2 class="mb-4">Game Information</h2>
+
+					<p><strong>Description:</strong> This is a bubble shooting game that creates bursts of color like
+						fireworks in
+						the sky.</p>
+					<p><strong>Created by:</strong> Thuong Pham</p>
+					<p><strong>Contact:</strong> Email: phamthuong.bs@gmail.com</p>
+
+					<h4 class="mt-4">Game Rules:</h4>
+					<p>Use the mouse to aim and shoot at the enemies. Burst them like fireworks!</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="settings-icon position-fixed fs-1 top-0 me-5 pe-2 text-light end-0">
+		<i class="fas fa-cog" data-bs-toggle="modal" data-bs-target="#settingsModal"></i>
+	</div>
+	<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="settingsModalLabel">Settings</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+
+					<div class="setting-option">
+						<label for="bgVolumeRange" class="setting-label">Background Music Volume</label>
+						<div class="volume-controls">
+							<i class="fas fa-volume-up setting-icon" id="bgVolumeIcon"></i>
+							<input type="range" class="form-range" id="bgVolumeRange" min="0" max="1" step="0.1">
+						</div>
+					</div>
+					<div class="setting-option">
+						<label for="shootVolumeRange" class="setting-label">Shoot Volume</label>
+						<div class="volume-controls">
+							<i class="fas fa-volume-up setting-icon" id="shootVolumeIcon"></i>
+							<input type="range" class="form-range" id="shootVolumeRange" min="0" max="1" step="0.1">
+						</div>
+					</div>
+					<div class="setting-option">
+						<label for="collisionVolumeRange" class="setting-label">Collision Volume</label>
+						<div class="volume-controls">
+							<i class="fas fa-volume-up setting-icon" id="collisionVolumeIcon"></i>
+							<input type="range" class="form-range" id="collisionVolumeRange" min="0" max="1" step="0.1">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- //----------------------------------------------------------------- -->
+
+
+
+
+	<script src="./assets/library/gsap-public/minified/gsap.min.js"></script>
+	<script src="./assets/javascript/UI.js"></script>
+	<script src="./assets/javascript/Player.js"></script>
+	<script src="./assets/javascript/Projectile.js"></script>
+	<script src="./assets/javascript/Enemy.js"></script>
+	<script src="./assets/javascript/Particle.js"></script>
+	<script src="./assets/javascript/GameLogic.js"></script>
+	<script src="./assets/javascript/SoundControl.js"></script>
+	<script src="./assets/javascript/Main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+		crossorigin="anonymous"></script>
 
 </body>
 

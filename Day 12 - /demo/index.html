@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas></canvas>
+  <script>
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    class Circle {
+      constructor(x, y, radius) {
+        this.radius = radius;
+        this.x = x;
+        this.y = y;
+
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        // ctx.fillStyle = "blue";
+        ctx.strokeStyle = "blue";
+        ctx.stroke();
+        // ctx.fill();
+
+
+      }
+    }
+    class Rectangle {
+      constructor(x, y, width, height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+
+      }
+      draw() {
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.stroke();
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+
+      }
+
+    }
+
+    // kiểm tra va chạm của hinhf chữ nhạt
+    let rectangle1 = new Rectangle(100, 100, 50, 60);
+    rectangle1.draw()
+    let rectangle2 = new Rectangle(120, 120, 50, 60);
+    rectangle2.draw();
+    // Kiểm tra va chạm
+    if (isRectangleCollision(rectangle1, rectangle2)) {
+      console.log("Hai hình chữ nhật va chạm nhau");
+    } else {
+      console.log("Hai hình chữ nhật không va chạm nhau");
+    }
+
+    function isRectangleCollision(rectangle1, rectangle2) {
+      let distX = Math.abs(rectangle1.x + (rectangle1.width / 2) - rectangle2.x + (rectangle2.width / 2));
+      let distW = (rectangle1.width + rectangle2.width) / 2;
+      let distY = Math.abs(rectangle1.y + (rectangle1.height / 2) - rectangle2.y + (rectangle2.height / 2));
+      let distH = (rectangle1.height + rectangle2.height) / 2;
+      return (distX <= distW && distY <= distH)
+
+    }
+    // check hai hình tron
+    function isCircleCollision(circle1, circle2) {
+      let distX = circle1.x - circle2.x;
+      let distY = circle1.y - circle2.y;
+
+      let distance = Math.sqrt(distX * distX + distY * distY);
+
+      return distance <= circle1.radius + circle2.radius;
+    }
+
+    // Khởi tạo hai hình tròn
+    // let circleX = canvas.width / 2; // Tọa độ X của hình tròn nằm giữa canvas
+    // let circleY = canvas.height / 2; // Tọa độ Y của hình tròn nằm giữa canvas
+    // const circle1 = new Circle(circleX, circleY, 50);
+    let circle1 = new Circle(600, 200, 50);
+    let circle2 = new Circle(650, 200, 30);
+    circle1.draw();
+    circle2.draw();
+
+    // Kiểm tra va chạm
+    if (isCircleCollision(circle1, circle2)) {
+      console.log("Hai hình tròn va chạm nhau");
+    } else {
+      console.log("Hai hình tròn không va chạm nhau");
+    }
+
+
+    // check va chạm của hình tròn và hình chữ nhật
+    function checkCollision(circle, rectangle) {
+      // Tính tọa độ góc trên bên trái của hình chữ nhật
+      let rectLeft = rectangle.x;
+      let rectTop = rectangle.y;
+      // Tính tọa độ góc dưới bên phải của hình chữ nhật
+      let rectRight = rectangle.x + rectangle.width;
+      let rectBottom = rectangle.y + rectangle.height;
+      // Tính tọa độ tâm của hình tròn
+      let Ax = circle.x;
+      let Ay = circle.y;
+
+      if (circle.x < rectLeft)
+        Ax = rectLeft;
+      else if (circle.x > rectRight)
+        Ax = rectRight;
+
+      if (circle.y < rectTop)
+        Ay = rectTop;
+      else if (circle.y > rectBottom)
+        Ay = rectBottom;
+
+      let dx = circle.x - Ax;
+      let dy = circle.y - Ay;
+
+      return (dx * dx + dy * dy) <= circle.radius * circle.radius;
+
+
+    }
+    // let circle = new Circle(100, 100, 50);
+    // let rectangle = new Rectangle(80, 80, 100, 100);
+    let circle5 = new Circle(100, 300, 50);
+    let rectangle4 = new Rectangle(80, 200, 100, 100);
+    circle5.draw();
+    rectangle4.draw();
+    if (checkCollision(circle5, rectangle4)) {
+      console.log("Hình tròn và hình chữ nhật va chạm!");
+    } else {
+      console.log("Hình tròn và hình chữ nhật không va chạm.");
+    }
+
+
+  </script>
+</body>
+
+</html>
